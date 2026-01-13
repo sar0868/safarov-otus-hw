@@ -46,6 +46,7 @@ ExportedObj/
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user
@@ -100,3 +101,4 @@ src/*/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Pr
 
 # Auto-generated scenes by play mode tests
 src/*/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+src/safarov_otus_hw1/.vscode
