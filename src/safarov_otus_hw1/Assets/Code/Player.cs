@@ -15,11 +15,6 @@ namespace Code
             Damage();
         }
 
-        private void Update()
-        {
-
-        }
-
         private void OnValidate()
         {
             First();
