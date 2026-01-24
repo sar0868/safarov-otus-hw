@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code
@@ -6,12 +7,15 @@ namespace Code
     {
         public float baseDamage = 2.33212f;
         public int multiplier = 4;
-        public float health = 100f;
+        public int Hp = 100;
+        private bool isDeath;
         private float damage;
 
         private void Start()
         {
-            Debug.Log($"health: {health:###.###}");
+            isDeath = false;
+            Debug.Log($"health: {Hp}");
+            Damage();
             Damage();
         }
 
@@ -33,10 +37,21 @@ namespace Code
 
         private void Damage()
         {
+            if (isDeath)
+            {
+                Debug.Log("Character is dead");
+                return;
+            }
             damage = baseDamage * multiplier;
             Debug.Log($"damage was caused: {damage:##.####}");
-            health -= damage;
-            Debug.Log($"health: {health:###.###}");
+            int damageInt = (int)Math.Round(damage);
+            Hp -= damageInt < Hp? damageInt: Hp;
+            Debug.Log($"health: {Hp}");
+            if (Hp == 0)
+            {
+                isDeath = true;
+                Debug.Log("Character is dead");
+            }
         }
     }
 }

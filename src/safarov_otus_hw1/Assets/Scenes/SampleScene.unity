@@ -270,14 +270,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371059176}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf77baca6c211b548b07a86f15db3bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Player
-  baseDamage: 2.33212
-  multiplier: 4
-  health: 100
+  baseDamage: 3.999
+  multiplier: 40
+  Hp: 100
 --- !u!4 &1371059178
 Transform:
   m_ObjectHideFlags: 0
