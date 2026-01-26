@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4908e82163a264ba05e7d24a6e2516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Character
-  Renderer: {fileID: 2039180321}
+  Renderer: {fileID: 0}
 --- !u!135 &2039180320
 SphereCollider:
   m_ObjectHideFlags: 0
