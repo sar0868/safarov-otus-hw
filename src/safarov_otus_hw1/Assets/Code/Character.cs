@@ -5,12 +5,13 @@ namespace Code
     public class Character : MonoBehaviour
     {
         public Renderer Renderer;
+
         public void SetActive(bool isActive)
         {
             gameObject.SetActive(isActive);
         }
 
-        private void setColor(Color color)
+        private void SetColor(Color color)
         {
             Renderer.material.color = color;
         }
@@ -19,10 +20,10 @@ namespace Code
         {
             if (isEnemy)
             {
-                setColor(Color.red);
+                SetColor(Color.red);
             } else
             {
-                setColor(Color.blue);
+                SetColor(Color.blue);
             }
         }
     }

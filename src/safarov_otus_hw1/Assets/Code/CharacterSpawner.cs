@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 namespace Code
 {
@@ -7,6 +6,7 @@ namespace Code
     {
         public Character Character;
         public int CountCharacter;
+
         private System.Random _random;
 
         private void Start()
@@ -15,7 +15,8 @@ namespace Code
             _random = new System.Random();
         }
 
-        private void Update() {
+        private void Update() 
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Spawn();
@@ -34,5 +35,4 @@ namespace Code
             }
         }
     }
-
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Code
@@ -42,11 +41,13 @@ namespace Code
                 Debug.Log("Character is dead");
                 return;
             }
+
             damage = baseDamage * multiplier;
             Debug.Log($"damage was caused: {damage:##.####}");
-            int damageInt = (int)Math.Round(damage);
+            int damageInt = (int)Mathf.Round(damage);
             Hp -= damageInt < Hp? damageInt: Hp;
             Debug.Log($"health: {Hp}");
+
             if (Hp == 0)
             {
                 isDeath = true;
