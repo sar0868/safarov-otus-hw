@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code
@@ -6,8 +5,7 @@ namespace Code
     public class Player : MonoBehaviour
     {
         [SerializeField] private float Speed;
-        // [SerializeField] private float speedH;
-        //[SerializeField] private Rigidbody _rigidbody;
+
         private Rigidbody _rigidbody;
         private int CountFirstAidKit = 0;
 
@@ -16,15 +14,13 @@ namespace Code
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void Update()
-        {
-            //float vel = Input.GetAxis("Vertical");
-            //transform.position += Vector3.forward * Speed * vel * Time.deltaTime;
-            //float rotation = Input.GetAxis("Horizontal");
-            //transform.position += Vector3.right * Speed * rotation * Time.deltaTime;
-  
-            
-        }
+        //private void Update()
+        //{
+        //    float vel = Input.GetAxis("Vertical");
+        //    transform.position += Vector3.forward * Speed * vel * Time.deltaTime;
+        //    float rotation = Input.GetAxis("Horizontal");
+        //    transform.position += Vector3.right * Speed * rotation * Time.deltaTime;
+        //}
 
         private void FixedUpdate()
         {
@@ -35,6 +31,7 @@ namespace Code
         {
             float moveV = Input.GetAxis("Vertical");
             float moveH = Input.GetAxis("Horizontal");
+
             Vector3 movement = new Vector3(moveH, 0.0f, moveV);
             _rigidbody.AddForce(movement * Speed);
         }
@@ -45,6 +42,7 @@ namespace Code
             {
                 CountFirstAidKit++;
                 Debug.Log($"Count first aid kit = {CountFirstAidKit}");
+
                 Destroy(collision.gameObject);
             }
         }
