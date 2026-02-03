@@ -4,15 +4,26 @@ namespace Code
 {
     public class Player : MonoBehaviour
     {
-        public float speedV;
-        public float speedH;
+        [SerializeField] private float speed;
+        // [SerializeField] private float speedH;
+        [SerializeField] private Rigidbody _rigidbody;
 
-        void Update()
+        private void Update()
         {
-            transform.position += Vector3.forward * speedV * Time.deltaTime;
+            float vel = Input.GetAxis("Vertical");
+            transform.position += Vector3.forward * speed * vel * Time.deltaTime;
             float rotation = Input.GetAxis("Horizontal");
-            transform.position += Vector3.right * speedH * rotation * Time.deltaTime;
+            transform.position += Vector3.right * speed * rotation * Time.deltaTime;
+  
+            
+        }
 
+        private void FixedUpdate()
+        {
+            // float vel = Input.GetAxis("Vertical");
+            // _rigidbody.linearVelocity = Vector3.forward * speed;
+            // float rotation = Input.GetAxis("Horizontal");
+            // _rigidbody.linearVelocity = Vector3.right * speed * rotation;
         }
     }
 }
