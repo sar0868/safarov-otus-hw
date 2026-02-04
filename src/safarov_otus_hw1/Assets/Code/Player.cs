@@ -30,14 +30,15 @@ namespace Code
 
         private void MovementPlayer()
         {
-            float moveV = Input.GetAxis("Vertical");
-            float moveH = Input.GetAxis("Horizontal");
+            float moveV = Input.GetAxis("Vertical") * Speed;
+            float moveH = Input.GetAxis("Horizontal") * SpeedRotation;
 
-            Vector3 rotation = Vector3.up * moveH * SpeedRotation;
+            Vector3 rotation = Vector3.up * moveH;
             Quaternion angleRotation = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-            // Vector3 movement = new Vector3(moveH, 0.0f, moveV);
-            _rigidbody.MovePosition(transform.position + transform.forward * moveV * Speed * Time.fixedDeltaTime);
-            // _rigidbody.AddForce(movement * Speed);
+
+            Vector3 movement = new Vector3(0.0f, 0.0f, moveV);
+
+            _rigidbody.MovePosition(transform.position + transform.forward * moveV * Time.fixedDeltaTime);
             _rigidbody.MoveRotation(_rigidbody.rotation * angleRotation);
         }
 
