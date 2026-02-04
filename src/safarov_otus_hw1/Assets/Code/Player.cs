@@ -5,6 +5,7 @@ namespace Code
     public class Player : MonoBehaviour
     {
         [SerializeField] private float Speed;
+        [SerializeField] private float SpeedRotation;
 
         private Rigidbody _rigidbody;
         private int CountFirstAidKit = 0;
@@ -32,8 +33,12 @@ namespace Code
             float moveV = Input.GetAxis("Vertical");
             float moveH = Input.GetAxis("Horizontal");
 
-            Vector3 movement = new Vector3(moveH, 0.0f, moveV);
-            _rigidbody.AddForce(movement * Speed);
+            Vector3 rotation = Vector3.up * moveH * SpeedRotation;
+            Quaternion angleRotation = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+            // Vector3 movement = new Vector3(moveH, 0.0f, moveV);
+            _rigidbody.MovePosition(transform.position + transform.forward * moveV * Speed * Time.fixedDeltaTime);
+            // _rigidbody.AddForce(movement * Speed);
+            _rigidbody.MoveRotation(_rigidbody.rotation * angleRotation);
         }
 
         private void OnCollisionEnter(Collision collision)

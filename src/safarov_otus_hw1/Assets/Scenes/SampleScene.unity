@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb117bf92add5540815a5dc6ec1dc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  FirstAidKit: {fileID: 6184684670952881254, guid: 11157d7b6eb8ff945b600aeb6e42d39e, type: 3}
-  Count: 10
+  _firstAidKit: {fileID: -99653879330066528, guid: 11157d7b6eb8ff945b600aeb6e42d39e, type: 3}
+  Count: 5
 --- !u!4 &136560184
 Transform:
   m_ObjectHideFlags: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Player
   Speed: 0
+  SpeedRotation: 0
 --- !u!4 &1371059178
 Transform:
   m_ObjectHideFlags: 0
@@ -537,11 +538,11 @@ Transform:
   m_GameObject: {fileID: 1435552384}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 10, z: -25}
+  m_LocalPosition: {x: 0, y: 2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1443727983}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &1435552388
 MonoBehaviour:
@@ -621,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Player
   Speed: 10
+  SpeedRotation: 5
 --- !u!23 &1443727981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -690,7 +692,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1435552387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1443727984
@@ -718,7 +721,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1443727985
 CapsuleCollider:
@@ -750,6 +753,5 @@ SceneRoots:
   - {fileID: 1262506179}
   - {fileID: 1371059178}
   - {fileID: 1037256033}
-  - {fileID: 1435552387}
   - {fileID: 1443727983}
   - {fileID: 136560184}
