@@ -17,11 +17,16 @@ namespace Code
 
         //private void Update()
         //{
-        //    float vel = Input.GetAxis("Vertical");
-        //    transform.position += Vector3.forward * Speed * vel * Time.deltaTime;
-        //    float rotation = Input.GetAxis("Horizontal");
-        //    transform.position += Vector3.right * Speed * rotation * Time.deltaTime;
+        //    MovingPlayerTransform();
         //}
+
+        private void MovingPlayerTransform()
+        {
+            float vel = Input.GetAxis("Vertical");
+            float rotation = Input.GetAxis("Horizontal");
+            transform.Rotate(Vector3.up * rotation * SpeedRotation * Time.deltaTime);
+            transform.Translate(Vector3.forward * Speed * vel * Time.deltaTime);
+        }
 
         private void FixedUpdate()
         {
