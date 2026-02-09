@@ -7,6 +7,14 @@ namespace Code
         [SerializeField] private float Speed;
         [SerializeField] private float SpeedRotation;
 
+        private Animator _animator;
+
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+
         private void Update()
         {
            MovingPlayerTransform();
@@ -14,10 +22,24 @@ namespace Code
 
         private void MovingPlayerTransform()
         {
-            float vel = Input.GetAxis("Vertical");
-            float rotation = Input.GetAxis("Horizontal");
+            float move = Input.GetAxis("Vertical");
+            if (move > 0.0f)
+            {
+                _animator.SetBool("IsRunBack", false);
+                _animator.SetBool("isRunForward", true);
+            }
+            else if (move < 0.0f)
+            {
+                _animator.SetBool("isRunForward", false);
+                _animator.SetBool("IsRunBack", true);
+            } else
+            {
+                _animator.SetBool("isRunForward", false);
+                _animator.SetBool("IsRunBack", false);
+            }
+                float rotation = Input.GetAxis("Horizontal");
             transform.Rotate(Vector3.up * rotation * SpeedRotation * Time.deltaTime);
-            transform.Translate(Vector3.forward * Speed * vel * Time.deltaTime);
+            transform.Translate(Vector3.forward * Speed * move * Time.deltaTime);
         }
 
     }
