@@ -9,6 +9,7 @@ namespace Code
 
         private Rigidbody _rigidbody;
         private int CountFirstAidKit = 0;
+        
 
         private void Start()
         {
@@ -22,10 +23,11 @@ namespace Code
 
         private void MovingPlayerTransform()
         {
-            float vel = Input.GetAxis("Vertical");
-            float rotation = Input.GetAxis("Horizontal");
-            transform.Rotate(Vector3.up * rotation * SpeedRotation * Time.deltaTime);
-            transform.Translate(Vector3.forward * Speed * vel * Time.deltaTime);
+            Vector2 _getInput = GetInput();
+            
+
+            transform.Rotate( _getInput.y * SpeedRotation * Time.deltaTime * Vector3.up);
+            transform.Translate( Speed * _getInput.x * Time.deltaTime * Vector3.forward);
         }
 
         private void FixedUpdate()
@@ -35,13 +37,13 @@ namespace Code
 
         private void MovementPlayer()
         {
-            float moveV = Input.GetAxis("Vertical") * Speed;
-            float moveH = Input.GetAxis("Horizontal") * SpeedRotation;
+            Vector2 _getInput = GetInput();
 
-            Vector3 rotation = Vector3.up * moveH;
+
+            Vector3 rotation = _getInput.y *SpeedRotation * Vector3.up;
             Quaternion angleRotation = Quaternion.Euler(rotation * Time.fixedDeltaTime);
 
-            _rigidbody.MovePosition(transform.position + transform.forward * moveV * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(transform.position +  _getInput.x * Speed * Time.fixedDeltaTime * transform.forward);
             _rigidbody.MoveRotation(_rigidbody.rotation * angleRotation);
         }
 
@@ -54,6 +56,13 @@ namespace Code
 
                 Destroy(collision.gameObject);
             }
+        }
+
+        private Vector2 GetInput()
+        {
+            float vel = Input.GetAxis("Vertical");
+            float rotation = Input.GetAxis("Horizontal");
+            return new Vector2(vel, rotation);
         }
     }
 }
