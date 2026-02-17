@@ -8,9 +8,30 @@ namespace Code
     {
         [SerializeField] private float _damage = 0.5f;
         [SerializeField] private float _force = 1.5f;
-        [SerializeField] private float _liveBullet = 0.25f;
+        [SerializeField] private float _lifeBullet = 0.25f;
 
         public bool IsActive { get; private set; }
+        public float Force
+        {
+            get
+            {
+                if (_force <= 0)
+                {
+                    return 0.0f;
+                }
+                return _force;
+            }
+
+            set
+            {
+                if (IsActive == false)
+                {
+                    _force = 0.0f;
+                    return;
+                }
+                _force = value;
+            }
+        }
 
         private Rigidbody _rigidbody;
 
@@ -19,7 +40,26 @@ namespace Code
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
-        
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.TryGetComponent<HealthController>(out HealthController health))
+            {
+                Destroy(gameObject);
+                if (health.CanTakeDamage(_damage))
+                {
+                    return;
+                }
+
+                if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody) == false)
+                {
+                    rigidbody = collision.gameObject.AddComponent<Rigidbody>();
+                }
+
+                rigidbody.AddForce(_rigidbody.linearVelocity * Force, ForceMode.Impulse);
+            }
+        }
+
         public void Run(Vector3 path, Vector3 position)
         {
             transform.position = position;
@@ -28,13 +68,13 @@ namespace Code
             _rigidbody.WakeUp();
             _rigidbody.AddForce(path);
             IsActive = true;
-            StartCoroutine(LiveBullet());
+            StartCoroutine(LifeBullet());
 
         }
 
-        private IEnumerator LiveBullet()
+        private IEnumerator LifeBullet()
         {
-            yield return new WaitForSeconds(_liveBullet);
+            yield return new WaitForSeconds(_lifeBullet);
             Destroy(gameObject);
         }
 
