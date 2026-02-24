@@ -62,7 +62,7 @@ namespace Code
             transform.parent = null;
             gameObject.SetActive(true);
             _rigidbody.WakeUp();
-            _rigidbody.AddForce(path);
+            _rigidbody.AddForce(path, ForceMode.Impulse);
             IsActive = true;
             StartCoroutine(LifeBullet());
 

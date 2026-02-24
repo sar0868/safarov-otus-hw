@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 28562663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: 0.101, z: 0.837}
+  m_LocalPosition: {x: 0, y: 0.0511, z: 0.419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: ff8c9f278b5bc8e4c894e1122f4a81f3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: ff8c9f278b5bc8e4c894e1122f4a81f3, type: 3}
       propertyPath: m_LocalScale.x
@@ -325,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: ff8c9f278b5bc8e4c894e1122f4a81f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.192
+      value: 0.203
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: ff8c9f278b5bc8e4c894e1122f4a81f3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -523,9 +523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7bd31b5d4ab4b9ea1e090199ca5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG
+  _level: 4
   _barrel: {fileID: 236136247}
-  _force: 100
-  _shotDelay: 0
+  _weaponUpgradeData: {fileID: 11400000, guid: bc5f77b16e82e47ffbed5552541f0df9, type: 2}
   _rocketPrefab: {fileID: -3440976949693357240, guid: 0e2377c327cde491db541fda056f8d8c, type: 3}
 --- !u!1001 &746329221
 PrefabInstance:
@@ -1204,9 +1204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f053f44295adb40808b8bfbacb83e7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Gun
+  _level: 4
   _barrel: {fileID: 28562664}
-  _force: 7000
-  _shotDelay: 0.2
+  _weaponUpgradeData: {fileID: 11400000, guid: bc5f77b16e82e47ffbed5552541f0df9, type: 2}
   _bulletPrefab: {fileID: 2306269664530884085, guid: 7ff3d9fb123144758b7b45ec7d02e99f, type: 3}
   _countBullets: 20
 --- !u!1001 &1979352518

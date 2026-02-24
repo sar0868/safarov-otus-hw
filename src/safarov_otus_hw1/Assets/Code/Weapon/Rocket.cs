@@ -21,7 +21,7 @@ namespace Code
 
             Destroy(gameObject);
 
-            float radius = _scale / 2;
+            float radius = _scale * 0.5f;
             Vector3 center = collision.contacts[0].point;
             int countCollied = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
 

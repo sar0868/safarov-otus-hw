@@ -6,12 +6,12 @@ namespace Code
     [RequireComponent(typeof(Rigidbody))]
     public abstract class Projectile : MonoBehaviour
     {
-        [SerializeField] protected float _lifeBullet = 0.25f;
+        [SerializeField] protected float _lifeProjectile = 0.25f;
         protected Rigidbody _rigidbody;
 
         protected IEnumerator LifeBullet()
         {
-            yield return new WaitForSeconds(_lifeBullet);
+            yield return new WaitForSeconds(_lifeProjectile);
             Destroy(gameObject);
         }
 

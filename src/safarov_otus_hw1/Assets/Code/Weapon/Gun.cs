@@ -10,8 +10,9 @@ namespace Code
         private Bullet[] _bullets;
         private Transform _bulletsRoot;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _bulletsRoot = new GameObject("Bullets root").transform;
             Recharge();
         }
@@ -25,7 +26,7 @@ namespace Code
 
             if (TryGetBullet(out Bullet bullet))
             {
-                bullet.Run(_barrel.forward * _force, _barrel.position);
+                bullet.Run(_barrel.forward * Force, _barrel.position);
                 LastShootTime = 0.0f;
             }
 

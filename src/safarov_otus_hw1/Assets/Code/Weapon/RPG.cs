@@ -10,8 +10,9 @@ namespace Code
         private Rocket _instantiateRocket;
         private GameObject _rocket;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _rocket = transform.Find("Rocket").gameObject;
             Recharge();
         }
@@ -20,8 +21,9 @@ namespace Code
             if (_instantiateRocket)
             {
                 _rocket.SetActive(false);
-                _instantiateRocket.Run(_barrel.forward * _force, _barrel.position);
+                _instantiateRocket.Run(_barrel.forward * Force, _barrel.position);
                 _instantiateRocket = null;
+                LastShootTime = 0.0f;
             }
 
         }
