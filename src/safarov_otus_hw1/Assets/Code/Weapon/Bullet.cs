@@ -4,11 +4,10 @@ using UnityEngine;
 namespace Code
 {
     [RequireComponent(typeof(Rigidbody))]
-    internal class Bullet: MonoBehaviour
+    internal class Bullet: Projectile
     {
         [SerializeField] private float _damage = 0.5f;
         [SerializeField] private float _force = 1.5f;
-        [SerializeField] private float _lifeBullet = 0.25f;
 
         public bool IsActive { get; private set; }
         public float Force
@@ -32,9 +31,6 @@ namespace Code
                 _force = value;
             }
         }
-
-        private Rigidbody _rigidbody;
-
 
         private void Awake()
         {
@@ -60,7 +56,7 @@ namespace Code
             }
         }
 
-        public void Run(Vector3 path, Vector3 position)
+        public override void Run(Vector3 path, Vector3 position)
         {
             transform.position = position;
             transform.parent = null;
@@ -72,13 +68,13 @@ namespace Code
 
         }
 
-        private IEnumerator LifeBullet()
-        {
-            yield return new WaitForSeconds(_lifeBullet);
-            Destroy(gameObject);
-        }
+        // private IEnumerator LifeBullet()
+        // {
+        //     yield return new WaitForSeconds(_lifeBullet);
+        //     Destroy(gameObject);
+        // }
 
-        public void Sleep()
+        public override void Sleep()
         {
             _rigidbody.Sleep();
             gameObject.SetActive(false);
