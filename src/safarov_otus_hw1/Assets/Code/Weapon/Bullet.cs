@@ -68,12 +68,6 @@ namespace Code
 
         }
 
-        // private IEnumerator LifeBullet()
-        // {
-        //     yield return new WaitForSeconds(_lifeBullet);
-        //     Destroy(gameObject);
-        // }
-
         public override void Sleep()
         {
             _rigidbody.Sleep();

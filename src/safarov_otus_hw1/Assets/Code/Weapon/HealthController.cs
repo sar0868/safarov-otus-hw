@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Data.Common;
 using UnityEngine;
 
 namespace Code
@@ -10,13 +8,14 @@ namespace Code
         [SerializeField] private float _health = 2.0f;
         [SerializeField] private float _lifeTime = 2.0f;
 
-        private float _hp;
+        private float _maxHp;
         private bool _isAlive = true;
 
+        public float MaxHp { get => _maxHp;}
 
         private void Start()
         {
-            _hp = _health;
+            _maxHp = _health;
         }
 
         public bool CanTakeDamage(float damage)
@@ -33,6 +32,24 @@ namespace Code
                 _isAlive = false;
                 return false;
             }
+            return true;
+        }
+
+        public bool CanAddHealth()
+        {
+            if (_isAlive == false)
+            {
+                return false;
+            }
+
+            if (_health >= MaxHp)
+            {
+                return false;
+            }
+
+            float health = _health + MaxHp * 0.25f;
+            _health = Mathf.Min(health, MaxHp);
+
             return true;
         }
 

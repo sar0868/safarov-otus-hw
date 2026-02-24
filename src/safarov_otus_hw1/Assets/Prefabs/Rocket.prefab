@@ -140,7 +140,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &-3440976949693357240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,4 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fc4a41d05a1435b9f95e2deeb3af82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Rocket
-  _lifeBullet: 2
+  _lifeBullet: 0.5
+  _powerExplosion: 10
+  _scale: 5
