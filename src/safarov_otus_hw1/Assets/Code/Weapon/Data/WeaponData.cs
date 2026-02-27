@@ -2,7 +2,8 @@ using UnityEngine;
 
 namespace Code
 {
-    [CreateAssetMenu(fileName = "WeaponData", menuName = "Data/Weapon/WeaponData")]
+    [CreateAssetMenu(fileName = "WeaponData", 
+    menuName = "Data/Weapon/WeaponData")]
     public sealed class WeaponData : ScriptableObject
     {
         [SerializeField] private float _force;

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6384a2d78cf42ac8c83bebcf601588, type: 3}
+  m_Name: PelletUpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::Code.PelletUpgradeData
+  _pelletDataByLevels:
+  - Level: 1
+    Data: {fileID: 11400000, guid: b90c0ce9ebefe44d68afcbcd25aa2ddb, type: 2}
+  - Level: 2
+    Data: {fileID: 11400000, guid: 5958347be9bd14479a3e1d8e5022ff16, type: 2}
+  - Level: 3
+    Data: {fileID: 11400000, guid: b87d3f04af2d44cd09272daca0db879d, type: 2}
+  _pelletDataDefault: {fileID: 11400000, guid: 977409523b2524c38bbedbcea7c9117a, type: 2}

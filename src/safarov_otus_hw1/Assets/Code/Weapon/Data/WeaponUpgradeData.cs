@@ -17,11 +17,6 @@ namespace Code
         [SerializeField] private WeaponDataByLevel[] _weaponDataByLevels;
         [SerializeField] private WeaponData _weaponDataDefault;
 
-        // public WeaponData GetDefaultData()
-        // {
-        //     return _weaponDataDefault;
-        // }
-
         public bool TryGetDataLevel(int level, out WeaponData weaponData)
         {
             for (int i = 0; i < _weaponDataByLevels.Length; i++)
