@@ -22,7 +22,7 @@ namespace Code
             Force = data.Force;
             
         }
-        protected void Update()
+        private void Update()
         {
             CanShot = _shotDelay <= LastShootTime;
 
@@ -31,6 +31,7 @@ namespace Code
                 return;
             }
             LastShootTime += Time.deltaTime;
+            Debug.LogError("weapon update");
         }
 
         public abstract void Fire();
