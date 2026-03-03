@@ -30,7 +30,7 @@ namespace Code
             Force = data.Force;
             
         }
-        protected void Update()
+        private void Update()
         {
             CanShot = _shotDelay <= LastShootTime;
 
