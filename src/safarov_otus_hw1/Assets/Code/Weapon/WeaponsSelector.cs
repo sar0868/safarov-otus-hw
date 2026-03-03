@@ -61,8 +61,8 @@ namespace Code
                 _currentWeapon.SetActive(false);
             }
 
-            _currentIndex = Mathf.Abs(_currentIndex % _weapons.Count);
-            _currentWeapon = _weapons[_currentIndex];
+            int index = Mathf.Abs(_currentIndex % _weapons.Count);
+            _currentWeapon = _weapons[index];
             _currentWeapon.SetActive(true);
         }
     }
