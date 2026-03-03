@@ -31,7 +31,6 @@ namespace Code
                 return;
             }
             LastShootTime += Time.deltaTime;
-            Debug.LogError("weapon update");
         }
 
         public abstract void Fire();
