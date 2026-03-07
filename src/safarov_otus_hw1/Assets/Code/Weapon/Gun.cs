@@ -34,12 +34,13 @@ namespace Code
 
         }
 
-             public override void Recharge()
+        public override void Recharge()
         {
             if (_bullets.Count > 0)
             {
                 return;
             }
+
             for (int i = 0; i < _countBullets; i++)
             {
                 Bullet bullet = Instantiate(_bulletPrefab, _bulletsRoot);

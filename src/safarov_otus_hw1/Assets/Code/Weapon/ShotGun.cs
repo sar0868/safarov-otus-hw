@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Code
@@ -5,7 +6,7 @@ namespace Code
     public sealed class ShotGun : Weapon
     {
         [SerializeField] private Pellet _pelletPrefab;
-        [SerializeField] private int COUNT_PELLETS = 5;
+        [SerializeField] private int CountPelletsOUNT_PELLETS = 5;
 
         private bool _isInstantiatePellets = false;
 
@@ -19,7 +20,7 @@ namespace Code
         {
             if (_isInstantiatePellets)
             {
-                for (int i = 0; i < COUNT_PELLETS; i++)
+                for (int i = 0; i < CountPelletsOUNT_PELLETS; i++)
                 {
                     Pellet pellet = Instantiate(_pelletPrefab, _barrel.position, Quaternion.identity);
                     pellet.Run(_barrel.forward * Force, _barrel.position);
@@ -31,11 +32,13 @@ namespace Code
 
         public override void Recharge()
         {
-            if (_isInstantiatePellets)
-            {
-                return;
-            }
-            _isInstantiatePellets = true;
+            StartCoroutine(IsRecharge());
+        }
+
+        private IEnumerator IsRecharge()
+        {
+            _isInstantiatePellets = _isInstantiatePellets == false ? true : true;
+            yield return _isInstantiatePellets;
         }
     }
 }

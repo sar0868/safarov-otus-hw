@@ -11,7 +11,7 @@ namespace Code
         private float _maxHp;
         private bool _isAlive = true;
 
-        public float MaxHp { get => _maxHp;}
+        public float MaxHp { get => _maxHp; }
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace Code
             }
 
             _health -= damage;
-            if(_health <= 0)
+            if (_health <= 0)
             {
                 StartCoroutine(Destruction());
                 _isAlive = false;
@@ -58,13 +58,16 @@ namespace Code
             var component = GetComponent<Renderer>();
             component.material.color = Color.red;
             yield return new WaitForSeconds(1.0f);
+
             component.material.color = Color.yellow;
             yield return new WaitForSeconds(1.0f);
+
             component.material.color = Color.purple;
             yield return new WaitForSeconds(1.0f);
-            component.material.color = Color.magenta;
 
+            component.material.color = Color.magenta;
             yield return new WaitForSeconds(_lifeTime);
+
             StartCoroutine(Fade());
         }
 
@@ -87,7 +90,7 @@ namespace Code
                 }
                 yield return new WaitForSeconds(5.0f);
 
-                Destroy(gameObject);            
+                Destroy(gameObject);
             }
         }
     }

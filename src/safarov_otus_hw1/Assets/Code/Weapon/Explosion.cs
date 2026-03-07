@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace Code
 {
-    public sealed class Explosion: MonoBehaviour
+    public sealed class Explosion : MonoBehaviour
     {
         private Light _light;
-        
-        private void Awake() {
+
+        private void Awake()
+        {
             _light = gameObject.AddComponent<Light>();
             _light.type = LightType.Point;
             if (ColorUtility.TryParseHtmlString("#ffe700", out Color color))
@@ -17,7 +18,8 @@ namespace Code
 
         }
 
-        private IEnumerator Start() {
+        private IEnumerator Start()
+        {
             _light.transform.SetParent(null);
             float step = 1.0f;
             while (_light.intensity < 10.0f)
@@ -33,7 +35,7 @@ namespace Code
                 _light.range -= step * 2;
                 yield return new WaitForSeconds(0.05f);
             }
-            
+
             Destroy(gameObject);
         }
     }

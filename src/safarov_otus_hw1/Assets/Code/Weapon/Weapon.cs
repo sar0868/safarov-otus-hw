@@ -9,10 +9,11 @@ namespace Code
         [SerializeField] protected Transform _barrel;
         [SerializeField] protected WeaponUpgradeData _weaponUpgradeData;
         private Collider _collider;
-
+        private Transform _player;
         private float _shotDelay;
+        private Transform _weaponRoot;
 
-        public bool CanShot { get; private set ; }
+        public bool CanShot { get; private set; }
         public float LastShootTime { get; protected set; }
         protected float Force { get; private set; }
 
@@ -20,16 +21,18 @@ namespace Code
         {
             _collider = GetComponent<Collider>();
             _collider.isTrigger = true;
+            _player = Camera.main.transform;
+            _weaponRoot = FindAnyObjectByType<TargetMarkerWeaponRoot>().transform;
         }
 
         protected virtual void Start()
         {
             _weaponUpgradeData.TryGetDataLevel(_level, out WeaponData data);
-            
+
             _shotDelay = data.ShotDelay;
             Force = data.Force;
-            
         }
+
         private void Update()
         {
             CanShot = _shotDelay <= LastShootTime;
@@ -51,10 +54,9 @@ namespace Code
 
         protected void OnTriggerEnter(Collider other)
         {
-            Transform player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-            Transform weaponRoot = player.transform.Find("WeaponsRoot");
-            transform.SetParent(weaponRoot);
-            var weaponController = player.GetComponent<WeaponController>();
+
+            transform.SetParent(_weaponRoot);
+            _player.TryGetComponent(out WeaponController weaponController);
             weaponController.AddWeapon(this);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;

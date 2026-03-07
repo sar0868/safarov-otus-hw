@@ -5,8 +5,9 @@ namespace Code
     public class WeaponController : MonoBehaviour
     {
         private WeaponsSelector _weaponSelector;
-        
-        private void Start() {
+
+        private void Start()
+        {
             Weapon[] weapons = GetComponentsInChildren<Weapon>(true);
             _weaponSelector = new WeaponsSelector(weapons);
         }
@@ -14,7 +15,7 @@ namespace Code
         private void Update()
         {
             SelectWeapon();
-            
+
             if (Input.GetMouseButton(0))
             {
                 _weaponSelector.Fire();
