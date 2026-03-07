@@ -8,11 +8,12 @@ namespace Code
         [SerializeField] private float _scale;
 
         private Collider[] _collidedObjects;
-        private const int COUNT_COLLIDED_OBJ = 128;
+        private const int CountCollidedObj = 128;
 
-        private void Awake() {
+        private void Awake()
+        {
             _rigidbody = GetComponent<Rigidbody>();
-            _collidedObjects = new Collider[COUNT_COLLIDED_OBJ];
+            _collidedObjects = new Collider[CountCollidedObj];
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -42,7 +43,7 @@ namespace Code
                     rigidbody.AddExplosionForce(_powerExplosion, center, radius);
                 }
             }
-            }
+        }
         public override void Run(Vector3 path, Vector3 position)
         {
             transform.position = position;

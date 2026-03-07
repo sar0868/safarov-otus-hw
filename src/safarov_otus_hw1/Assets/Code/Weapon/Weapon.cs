@@ -10,17 +10,17 @@ namespace Code
 
         private float _shotDelay;
 
-        public bool CanShot { get; private set ; }
+        public bool CanShot { get; private set; }
         public float LastShootTime { get; protected set; }
         protected float Force { get; private set; }
 
         protected virtual void Start()
         {
             _weaponUpgradeData.TryGetDataLevel(_level, out WeaponData data);
-            
+
             _shotDelay = data.ShotDelay;
             Force = data.Force;
-            
+
         }
         private void Update()
         {

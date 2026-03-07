@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Code
 {
     [RequireComponent(typeof(Rigidbody))]
-    internal class Bullet: Projectile
+    public class Bullet : Projectile
     {
         [SerializeField] private float _damage = 0.5f;
         [SerializeField] private float _force = 1.5f;

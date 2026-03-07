@@ -8,10 +8,11 @@ namespace Code
     {
         [SerializeField] private float _scatter;
 
-        public float Scatter { 
-            get 
+        public float Scatter
+        {
+            get
             {
-                return _scatter; 
+                return _scatter;
             }
         }
     }

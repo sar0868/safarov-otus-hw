@@ -66,6 +66,6 @@ namespace Code
             return Quaternion.Euler(spreadX, spreadY, 0);
         }
 
-        public override void Sleep(){}
+        public override void Sleep() { }
     }
 }

@@ -11,7 +11,7 @@ namespace Code
         private float _maxHp;
         private bool _isAlive = true;
 
-        public float MaxHp { get => _maxHp;}
+        public float MaxHp { get => _maxHp; }
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace Code
             }
 
             _health -= damage;
-            if(_health <= 0)
+            if (_health <= 0)
             {
                 StartCoroutine(Destruction());
                 _isAlive = false;
@@ -87,7 +87,7 @@ namespace Code
                 }
                 yield return new WaitForSeconds(5.0f);
 
-                Destroy(gameObject);            
+                Destroy(gameObject);
             }
         }
     }

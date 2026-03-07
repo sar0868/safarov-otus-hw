@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code
 {
-    [CreateAssetMenu(fileName =nameof(WeaponUpgradeData), 
+    [CreateAssetMenu(fileName = nameof(WeaponUpgradeData),
     menuName = "Data/Weapon/Upgrade")]
     public sealed class WeaponUpgradeData : ScriptableObject
     {

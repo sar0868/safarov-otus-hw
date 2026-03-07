@@ -13,10 +13,10 @@ namespace Code
             public int Level;
             public PelletData Data;
         }
-        
+
         [SerializeField] private PelletDataByLevel[] _pelletDataByLevels;
         [SerializeField] private PelletData _pelletDataDefault;
-        
+
         public bool TryGetDataLevel(int level, out PelletData pelletData)
         {
             for (int i = 0; i < _pelletDataByLevels.Length; i++)
