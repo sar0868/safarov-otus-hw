@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fc4a41d05a1435b9f95e2deeb3af82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Rocket
-  _lifeBullet: 0.5
+  _lifeProjectile: 0.25
   _powerExplosion: 10
   _scale: 5
+  _audioExplosion: {fileID: 8300000, guid: 0e515f3e4049d4eabb17a2cd86166fb2, type: 3}
