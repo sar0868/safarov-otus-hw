@@ -27,6 +27,7 @@ namespace Code
                 }
                 _isInstantiatePellets = false;
                 LastShootTime = 0.0f;
+                _audioSource.PlayOneShot(_audioShot);
             }
         }
 

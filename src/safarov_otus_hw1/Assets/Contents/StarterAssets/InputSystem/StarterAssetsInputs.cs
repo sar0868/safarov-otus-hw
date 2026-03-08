@@ -20,6 +20,9 @@ namespace StarterAssets
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
+        [SerializeField] private AudioClip _audioJump;
+        [SerializeField] private AudioSource _audioSourceJump;
+
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
         {
@@ -59,6 +62,7 @@ namespace StarterAssets
         public void JumpInput(bool newJumpState)
         {
             jump = newJumpState;
+            PlayJump();
         }
 
         public void SprintInput(bool newSprintState)
@@ -74,6 +78,11 @@ namespace StarterAssets
         private void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+        }
+
+        private void PlayJump()
+        {
+            _audioSourceJump.PlayOneShot(_audioJump);
         }
     }
 

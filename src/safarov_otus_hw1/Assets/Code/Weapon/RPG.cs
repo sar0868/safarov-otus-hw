@@ -24,6 +24,7 @@ namespace Code
                 _instantiateRocket.Run(_barrel.forward * Force, _barrel.position);
                 _instantiateRocket = null;
                 LastShootTime = 0.0f;
+                _audioSource.PlayOneShot(_audioShot);
             }
 
         }

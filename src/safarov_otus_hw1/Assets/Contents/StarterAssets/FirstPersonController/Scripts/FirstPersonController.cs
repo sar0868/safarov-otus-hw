@@ -64,6 +64,9 @@ namespace StarterAssets
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
 
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _audioStep;
+
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -108,6 +111,11 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _audioStep;
+            _audioSource.loop = true;
+            _audioSource.Play();
         }
 
         private void Update()
@@ -196,6 +204,7 @@ namespace StarterAssets
 
             // move the player
             _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            PlayStep();
         }
 
         private void JumpAndGravity()
@@ -263,6 +272,20 @@ namespace StarterAssets
 
             // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
             Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+        }
+
+        private void PlayStep()
+        {
+
+            if (_input.move != Vector2.zero)
+            {
+                _audioSource.UnPause();
+
+            }
+            else
+            {
+                _audioSource.Pause();
+            }
         }
     }
 }

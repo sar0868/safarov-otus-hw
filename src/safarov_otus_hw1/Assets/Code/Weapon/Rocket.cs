@@ -6,6 +6,7 @@ namespace Code
     {
         [SerializeField] private float _powerExplosion;
         [SerializeField] private float _scale;
+        [SerializeField] private AudioClip _audioExplosion;
 
         private Collider[] _collidedObjects;
         private const int CountCollidedObj = 128;
@@ -26,6 +27,8 @@ namespace Code
             float radius = _scale * 0.5f;
             Vector3 center = collision.contacts[0].point;
             int countCollied = Physics.OverlapSphereNonAlloc(center, radius, _collidedObjects);
+
+            AudioSource.PlayClipAtPoint(_audioExplosion, collision.transform.position);
 
             for (int i = 0; i < countCollied; i++)
             {

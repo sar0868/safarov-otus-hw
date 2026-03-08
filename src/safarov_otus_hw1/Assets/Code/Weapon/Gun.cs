@@ -30,6 +30,7 @@ namespace Code
             {
                 bullet.Run(_barrel.forward * Force, _barrel.position);
                 LastShootTime = 0.0f;
+                _audioSource.PlayOneShot(_audioShot);
             }
 
         }

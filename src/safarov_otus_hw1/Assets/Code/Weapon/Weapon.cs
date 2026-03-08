@@ -3,11 +3,14 @@ using UnityEngine;
 namespace Code
 {
     [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(AudioSource))]
     public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected int _level = 1;
         [SerializeField] protected Transform _barrel;
         [SerializeField] protected WeaponUpgradeData _weaponUpgradeData;
+        [SerializeField] protected AudioSource _audioSource;
+        [SerializeField] protected AudioClip _audioShot;
         private Collider _collider;
         private Transform _player;
         private float _shotDelay;
