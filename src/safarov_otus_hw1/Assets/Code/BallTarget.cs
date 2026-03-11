@@ -1,5 +1,7 @@
 using UnityEngine;
 
-public class BallTarget : MonoBehaviour
+namespace Code
 {
+    public class BallTarget : MonoBehaviour { }
 }
+
