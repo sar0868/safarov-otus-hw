@@ -6,6 +6,9 @@ namespace Code
     public class Ball : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _soundTouch;
+
 
         private Transform _ballTarget;
         private Vector2 _direction;
@@ -39,10 +42,16 @@ namespace Code
         {
             if (collision.transform.TryGetComponent(out Brick brick))
             {
-                brick.Damage();
+
+                if (brick.Damage())
+                {
+                    _audioSource.clip = _soundTouch;
+                    _audioSource.Play();
+                }
+
             }
 
-            if (collision.transform.TryGetComponent(out DeadZone _))
+            if (collision.transform.TryGetComponent(out DeadZone deadZone))
             {
                 if (Life <= 0f)
                 {
@@ -55,6 +64,15 @@ namespace Code
             {
                 float range = Random.Range(-1.0f, 1.0f);
                 SetVelocity(new Vector2(range, -1).normalized);
+            }
+            if (collision.gameObject.CompareTag("TouchZone"))
+            {
+                if (_isStartGame)
+                {
+                    return;
+                }
+                _audioSource.clip = _soundTouch;
+                _audioSource.Play();
             }
         }
 

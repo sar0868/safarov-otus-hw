@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5112638947927484968}
   m_Layer: 0
   m_Name: Paddle
-  m_TagString: Untagged
+  m_TagString: TouchZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

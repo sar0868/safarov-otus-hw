@@ -1,21 +1,24 @@
-using Code;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Main : MonoBehaviour
+namespace Code
 {
-    public static int CountBrick { get; set; }
-
-    private void Awake()
+    public class Main : MonoBehaviour
     {
-        CountBrick = 0;
-    }
+        public static int CountBrick { get; set; }
 
-    private void Update()
-    {
-        if (CountBrick == 0)
+        private void Awake()
         {
-            SceneManager.LoadScene(2);
+            CountBrick = 0;
         }
+
+        private void Update()
+        {
+            if (CountBrick == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+        }
+
     }
 }

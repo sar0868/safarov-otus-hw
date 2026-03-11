@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 332343199}
   m_Layer: 0
   m_Name: TopZone
-  m_TagString: Untagged
+  m_TagString: TouchZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 519251579}
   m_Layer: 0
   m_Name: LeftZone
-  m_TagString: Untagged
+  m_TagString: TouchZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 1481724509}
   m_Layer: 0
   m_Name: RightZone
-  m_TagString: Untagged
+  m_TagString: TouchZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
