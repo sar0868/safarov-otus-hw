@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace Code
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _soundTouch;
+        [SerializeField] private AudioClip _soundDead;
 
 
         private Transform _ballTarget;
@@ -55,7 +57,10 @@ namespace Code
             {
                 if (Life <= 0f)
                 {
-                    SceneManager.LoadScene(2);
+                    _audioSource.clip = _soundDead;
+                    _audioSource.Play();
+                    StartCoroutine(Restart(_soundDead.length));
+
                 }
                 Life--;
                 CreateBall();
@@ -84,6 +89,12 @@ namespace Code
             transform.position = _ballTarget.position;
             _isStartGame = true;
             _rigidbody.linearVelocity = Vector3.zero;
+        }
+
+        private IEnumerator Restart(float soundLength)
+        {
+            yield return new WaitForSeconds(soundLength);
+            SceneManager.LoadScene(2);
         }
     }
 }

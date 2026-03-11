@@ -171,7 +171,7 @@ MonoBehaviour:
   _brickPrefab: {fileID: 665823786544312993, guid: e12297115cf414146ac61a14bd71c06a, type: 3}
   _rowUpgradeData: {fileID: 11400000, guid: 1bba10e1d202047338fab79b25ab0f0f, type: 2}
   _gameUpgradeData: {fileID: 11400000, guid: 13ec49060e8444b25a9ee579bea53b34, type: 2}
-  _ballPrefabs: {fileID: 1077078835026668712, guid: 719fe43f911e44e7fb37af654100dcdf, type: 3}
+  _ballPrefabs: {fileID: 169032517898442696, guid: 719fe43f911e44e7fb37af654100dcdf, type: 3}
   _paddlePrefabs: {fileID: 6770057377562681805, guid: f207a6f30644f4834a0b5c6f8a8b9e24, type: 3}
 --- !u!1 &332343194
 GameObject:
