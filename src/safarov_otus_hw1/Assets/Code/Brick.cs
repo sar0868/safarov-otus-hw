@@ -1,16 +1,25 @@
 using UnityEngine;
 
-public class Brick : MonoBehaviour
+namespace Code
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class Brick : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int Hp { get; set; }
+
+        public void Damage()
+        {
+            Hp--;
+            if (Hp <= 0)
+            {
+                Break();
+            }
+        }
+
+        private void Break()
+        {
+            Main.CountBrick--;
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 namespace Code
 {
-    public sealed class Paddle : MonoBehaviour
+    public class Paddle : MonoBehaviour
     {
         private float _left;
         private float _right;
@@ -18,7 +17,7 @@ namespace Code
 
         private void Update()
         {
-
+            MovementPaddle();
         }
 
         private void GetPositionBorder()
@@ -29,6 +28,24 @@ namespace Code
             _left = left.position.x + transform.localScale.x / 2 + _indent;
             _right = right.position.x - transform.localScale.x / 2 - _indent;
         }
+
+        private void MovementPaddle()
+        {
+
+            float axis = Input.GetAxis("Horizontal");
+            float newX = axis * Speed * Time.deltaTime;
+            float position = transform.position.x + newX;
+            if (IsBounds(position))
+            {
+                return;
+            }
+            transform.position += new Vector3(newX, 0, 0);
+        }
+
+
+        private bool IsBounds(float position)
+        {
+            return position >= _right || position <= _left;
+        }
     }
 }
-
