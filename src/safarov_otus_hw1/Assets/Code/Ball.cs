@@ -7,10 +7,11 @@ namespace Code
     public class Ball : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
+        // private AudioService _audioService;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _soundTouch;
         [SerializeField] private AudioClip _soundDead;
-
+        [SerializeField] private AudioClip _soundBreakBrick;
 
         private Transform _ballTarget;
         private Vector2 _direction;
@@ -31,7 +32,6 @@ namespace Code
                     _isStartGame = false;
                 }
             }
-
         }
 
         private void SetVelocity(Vector2 direction)
@@ -44,10 +44,14 @@ namespace Code
         {
             if (collision.transform.TryGetComponent(out Brick brick))
             {
-
                 if (brick.Damage())
                 {
                     _audioSource.clip = _soundTouch;
+                    _audioSource.Play();
+                }
+                else
+                {
+                    _audioSource.clip = _soundBreakBrick;
                     _audioSource.Play();
                 }
 
@@ -60,7 +64,6 @@ namespace Code
                     _audioSource.clip = _soundDead;
                     _audioSource.Play();
                     StartCoroutine(Restart(_soundDead.length));
-
                 }
                 Life--;
                 CreateBall();

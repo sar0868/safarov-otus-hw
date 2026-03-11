@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,5 @@ namespace Code
                 SceneManager.LoadScene(2);
             }
         }
-
     }
 }

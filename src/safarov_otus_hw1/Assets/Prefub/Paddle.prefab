@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 7883409732571361419}
   - component: {fileID: 5785407875891261754}
   - component: {fileID: 6770057377562681805}
-  - component: {fileID: 5112638947927484968}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: TouchZone
@@ -171,15 +170,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c2099f6fdee4e03b7cc9c4475ff4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &5112638947927484968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6067051690096056193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c2099f6fdee4e03b7cc9c4475ff4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.Paddle

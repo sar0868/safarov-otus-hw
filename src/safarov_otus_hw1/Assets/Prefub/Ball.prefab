@@ -53,6 +53,7 @@ MonoBehaviour:
   _audioSource: {fileID: 3824808294899484941}
   _soundTouch: {fileID: 8300000, guid: 58ec6a5d8ae4d55ddb2b8705fd95f180, type: 3}
   _soundDead: {fileID: 8300000, guid: 95cbb6d497885c32ab62ceec16630d80, type: 3}
+  _soundBreakBrick: {fileID: 8300000, guid: fbc6e2bec775934dc9cf7414a848463b, type: 3}
 --- !u!33 &7929851962414527486
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ namespace Code
 {
     public class Brick : MonoBehaviour
     {
-        [SerializeField] private AudioClip _audioBreak;
         public int Hp { get; set; }
 
         public bool Damage()
@@ -20,7 +19,6 @@ namespace Code
         private void Break()
         {
             Main.CountBrick--;
-            AudioSource.PlayClipAtPoint(_audioBreak, transform.position);
             Destroy(gameObject);
         }
     }
