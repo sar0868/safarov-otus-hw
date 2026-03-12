@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameData_1
   m_EditorClassIdentifier: Assembly-CSharp::Code.GameData
   _speedBall: 10
-  _speedPaddle: 8
+  _speedPaddle: 10
   _hpBrick: 2
   _countXY: {x: 9, y: 3}
   _life: 3
