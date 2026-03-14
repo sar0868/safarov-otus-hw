@@ -4,7 +4,14 @@ namespace Code
 {
     public class Brick : MonoBehaviour
     {
+        private LevelGenerator _levelGenerator;
+
         public int Hp { get; set; }
+
+        public void Init(LevelGenerator levelGenerator)
+        {
+            _levelGenerator = levelGenerator;
+        }
 
         public bool Damage()
         {
@@ -18,7 +25,7 @@ namespace Code
 
         private void Break()
         {
-            Main.CountBrick--;
+            _levelGenerator.DecrementBrick();
             Destroy(gameObject);
         }
     }

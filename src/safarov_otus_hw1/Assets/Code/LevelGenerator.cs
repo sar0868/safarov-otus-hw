@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code
 {
@@ -10,6 +11,8 @@ namespace Code
         [SerializeField] private GameUpgradeData _gameUpgradeData;
         [SerializeField] private Ball _ballPrefabs;
         [SerializeField] private Paddle _paddlePrefabs;
+
+        public int CountBrick { get; private set; }
 
         private const float Indent = 0.5f;
         private const int AspectRatio = 4;
@@ -30,6 +33,15 @@ namespace Code
         private int _life;
 
         public int Level { get => _level; set => _level = value; }
+
+        public void DecrementBrick()
+        {
+            CountBrick--;
+            if (CountBrick == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+        }
 
         private void Start()
         {
@@ -54,6 +66,7 @@ namespace Code
         private void CreateLevel()
         {
             SetSizes();
+            CountBrick = 0;
             for (int i = 0; i < _countY; i++)
             {
                 _rowUpgradeData.TryGetRowDataLine(i, out RowData rowData);
@@ -65,14 +78,14 @@ namespace Code
                         new Vector3(_currentLeft, _top, 0f),
                         Quaternion.identity
                     );
-
+                    brick.Init(this);
                     Renderer childRenderer = brick.GetComponentInChildren<Renderer>();
                     childRenderer.material.color = rowData.Color;
                     brick.transform.localScale = new Vector3(_sizeX, _sizeY, 1);
                     brick.Hp = _hpBrick;
 
                     _currentLeft += _sizeX;
-                    Main.CountBrick++;
+                    CountBrick++;
                 }
                 _top -= _sizeY;
             }
