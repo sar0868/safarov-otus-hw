@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4d48980f4c046adb0cedeffeb99fd4, type: 3}
+  m_Name: RowUpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::Code.RowUpgradeData
+  _rowDataByLines:
+  - Line: 0
+    RowData: {fileID: 11400000, guid: 2aa7b6a67ae884d93bbb151728ec8ea8, type: 2}
+  - Line: 1
+    RowData: {fileID: 11400000, guid: d65fc7f11a06c4414b63a80f5cdd5a64, type: 2}
+  - Line: 2
+    RowData: {fileID: 11400000, guid: 49afe4a0aadf5408bb6e787efb55470b, type: 2}
+  - Line: 3
+    RowData: {fileID: 11400000, guid: 5c69fee6cea1b4a9593d6789e59a21f3, type: 2}
+  - Line: 4
+    RowData: {fileID: 11400000, guid: 1168dc50438b648c0a59113015691122, type: 2}
+  _rowDataDefault: {fileID: 11400000, guid: e8201bf8975374159afb0f5f9151396f, type: 2}
