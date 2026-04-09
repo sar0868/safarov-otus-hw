@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class TargetMarkerWeaponRoot : MonoBehaviour
+namespace Code
 {
-
+    public class TargetMarkerWeaponRoot : MonoBehaviour
+    {
+    }
 }

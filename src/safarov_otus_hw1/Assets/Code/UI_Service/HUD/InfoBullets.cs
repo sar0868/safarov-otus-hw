@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Code.UI_Service.HUD
+namespace Code
 {
     public sealed class InfoBullets : MonoBehaviour
     {
