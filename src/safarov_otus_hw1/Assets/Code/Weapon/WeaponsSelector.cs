@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Code
 {
     public sealed class WeaponsSelector
     {
+
+        public static event Action<int> OnBulletsChanged;
         private readonly List<Weapon> _weapons;
         private int _currentIndex;
         private Weapon _currentWeapon;
@@ -31,6 +34,7 @@ namespace Code
             if (_currentWeapon != null)
             {
                 _currentWeapon.Fire();
+                OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
             }
         }
 
@@ -39,6 +43,7 @@ namespace Code
             if (_currentWeapon != null)
             {
                 _currentWeapon.Recharge();
+                OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
             }
         }
 
@@ -64,6 +69,7 @@ namespace Code
             int index = Mathf.Abs(_currentIndex % _weapons.Count);
             _currentWeapon = _weapons[index];
             _currentWeapon.SetActive(true);
+            OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
         }
     }
 }

@@ -28,12 +28,14 @@ namespace Code
                 _isInstantiatePellets = false;
                 LastShootTime = 0.0f;
                 _audioSource.PlayOneShot(_audioShot);
+                CountBullets--;
             }
         }
 
         public override void Recharge()
         {
             StartCoroutine(IsRecharge());
+            CountBullets++;
         }
 
         private IEnumerator IsRecharge()

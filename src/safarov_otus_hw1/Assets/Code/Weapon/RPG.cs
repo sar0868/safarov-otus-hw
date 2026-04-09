@@ -25,6 +25,7 @@ namespace Code
                 _instantiateRocket = null;
                 LastShootTime = 0.0f;
                 _audioSource.PlayOneShot(_audioShot);
+                CountBullets--;
             }
 
         }
@@ -38,6 +39,7 @@ namespace Code
             _instantiateRocket = Instantiate(_rocketPrefab, _barrel);
             _instantiateRocket.Sleep();
             _rocket.SetActive(true);
+            CountBullets++;
         }
     }
 

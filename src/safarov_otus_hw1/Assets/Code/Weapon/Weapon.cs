@@ -11,6 +11,8 @@ namespace Code
         [SerializeField] protected WeaponUpgradeData _weaponUpgradeData;
         [SerializeField] protected AudioSource _audioSource;
         [SerializeField] protected AudioClip _audioShot;
+
+        private int _cntBullets;
         private Collider _collider;
         private Transform _player;
         private float _shotDelay;
@@ -19,6 +21,7 @@ namespace Code
         public bool CanShot { get; private set; }
         public float LastShootTime { get; protected set; }
         protected float Force { get; private set; }
+        public int CountBullets { get => _cntBullets; set => _cntBullets = value; }
 
         protected void Awake()
         {

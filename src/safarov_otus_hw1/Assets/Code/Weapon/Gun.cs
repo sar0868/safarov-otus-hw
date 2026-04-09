@@ -31,6 +31,7 @@ namespace Code
                 bullet.Run(_barrel.forward * Force, _barrel.position);
                 LastShootTime = 0.0f;
                 _audioSource.PlayOneShot(_audioShot);
+                CountBullets--;
             }
 
         }
@@ -47,6 +48,7 @@ namespace Code
                 Bullet bullet = Instantiate(_bulletPrefab, _bulletsRoot);
                 bullet.Sleep();
                 _bullets.Enqueue(bullet);
+                CountBullets++;
             }
         }
     }
