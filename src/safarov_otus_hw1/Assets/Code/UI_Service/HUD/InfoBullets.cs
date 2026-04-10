@@ -7,10 +7,6 @@ namespace Code
     {
         [SerializeField] private TextMeshProUGUI _bulletBar;
 
-        private int _bullets;
-
-        public int Bullets { get => _bullets; set => _bullets = value; }
-
         private void OnEnable()
         {
             WeaponsSelector.OnBulletsChanged += UpdateUI;

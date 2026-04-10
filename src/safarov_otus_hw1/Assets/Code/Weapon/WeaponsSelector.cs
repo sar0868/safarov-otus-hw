@@ -6,7 +6,6 @@ namespace Code
 {
     public sealed class WeaponsSelector
     {
-
         public static event Action<int> OnBulletsChanged;
         private readonly List<Weapon> _weapons;
         private int _currentIndex;

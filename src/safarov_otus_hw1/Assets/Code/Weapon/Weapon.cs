@@ -6,7 +6,8 @@ namespace Code
     [RequireComponent(typeof(AudioSource))]
     public abstract class Weapon : MonoBehaviour
     {
-        [SerializeField] protected int _level = 1;
+        // [SerializeField] protected int _level = 1;
+        protected int _level = 1;
         [SerializeField] protected Transform _barrel;
         [SerializeField] protected WeaponUpgradeData _weaponUpgradeData;
         [SerializeField] protected AudioSource _audioSource;
@@ -22,6 +23,14 @@ namespace Code
         public float LastShootTime { get; protected set; }
         protected float Force { get; private set; }
         public int CountBullets { get => _cntBullets; set => _cntBullets = value; }
+
+        public int Level
+        {
+            set
+            {
+                _level = value;
+            }
+        }
 
         protected void Awake()
         {
