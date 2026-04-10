@@ -11,6 +11,17 @@ namespace Code
         private readonly List<Weapon> _weapons;
         private int _currentIndex;
         private Weapon _currentWeapon;
+        private int _bullets;
+
+        public int Bullets
+        {
+            get => _bullets;
+            set
+            {
+                _bullets = value;
+                OnBulletsChanged?.Invoke(_bullets);
+            }
+        }
 
         public WeaponsSelector(Weapon[] weapons)
         {
@@ -20,6 +31,7 @@ namespace Code
             {
                 AddWeapon(weapons[i]);
             }
+            Bullets = 0;
         }
 
         public void AddWeapon(Weapon weapon)
@@ -34,7 +46,7 @@ namespace Code
             if (_currentWeapon != null)
             {
                 _currentWeapon.Fire();
-                OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
+                Bullets = _currentWeapon.CountBullets;
             }
         }
 
@@ -43,7 +55,7 @@ namespace Code
             if (_currentWeapon != null)
             {
                 _currentWeapon.Recharge();
-                OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
+                Bullets = _currentWeapon.CountBullets;
             }
         }
 
@@ -69,7 +81,7 @@ namespace Code
             int index = Mathf.Abs(_currentIndex % _weapons.Count);
             _currentWeapon = _weapons[index];
             _currentWeapon.SetActive(true);
-            OnBulletsChanged?.Invoke(_currentWeapon.CountBullets);
+            Bullets = _currentWeapon.CountBullets;
         }
     }
 }
