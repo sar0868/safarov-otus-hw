@@ -103,3 +103,6 @@ src/*/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Pr
 src/*/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 src/safarov_otus_hw1/.vscode
 .vscode/settings.json
+src/safarov_otus_hw1/.idea
+
+src/safarov_otus_hw1/Assets/Code/Weapon/.idea
