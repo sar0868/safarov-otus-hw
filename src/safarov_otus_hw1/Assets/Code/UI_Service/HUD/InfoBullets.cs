@@ -22,7 +22,6 @@ namespace Code
             _bulletBar.text = $"Bullets: {countBullets}";
         }
 
-
     }
 }
 
