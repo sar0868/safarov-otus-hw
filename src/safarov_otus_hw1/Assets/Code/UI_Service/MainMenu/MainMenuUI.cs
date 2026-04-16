@@ -65,7 +65,5 @@ namespace Code
             EditorApplication.ExitPlaymode();
 #endif
         }
-
-
     }
 }
