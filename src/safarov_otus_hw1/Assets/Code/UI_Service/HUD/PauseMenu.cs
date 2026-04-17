@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,22 +9,13 @@ namespace Code
     {
         [SerializeField] private Button _backGame;
         [SerializeField] private Button _exitManeMenu;
-        [SerializeField] private PanelPMenu _panelPMenu;
         private bool _isPause;
 
 
-        private void Start()
+        private void Awake()
         {
-            _panelPMenu.gameObject.SetActive(false);
             _isPause = false;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Pause();
-            }
+            gameObject.SetActive(false);
         }
 
 
@@ -41,6 +33,7 @@ namespace Code
 
         private void ExitToManeMenu()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("MainMenu");
         }
 
@@ -49,11 +42,11 @@ namespace Code
             Resume();
         }
 
-        private void Pause()
+        public void Show()
         {
             if (_isPause == false)
             {
-                _panelPMenu.gameObject.SetActive(true);
+                gameObject.SetActive(true);
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.Confined;
                 _isPause = true;
@@ -65,7 +58,7 @@ namespace Code
         {
             if (_isPause == true)
             {
-                _panelPMenu.gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Locked;
                 _isPause = false;
