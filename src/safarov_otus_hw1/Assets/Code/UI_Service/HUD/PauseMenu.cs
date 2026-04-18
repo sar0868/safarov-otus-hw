@@ -50,6 +50,7 @@ namespace Code
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.Confined;
                 _isPause = true;
+                AudioListener.pause = true;
             }
 
         }
@@ -62,6 +63,7 @@ namespace Code
                 Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Locked;
                 _isPause = false;
+                AudioListener.pause = false;
             }
         }
 
