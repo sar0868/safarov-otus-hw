@@ -34,6 +34,7 @@ namespace Code
         private void ExitToManeMenu()
         {
             Time.timeScale = 1;
+            AudioListener.pause = false;
             SceneManager.LoadScene("MainMenu");
         }
 
