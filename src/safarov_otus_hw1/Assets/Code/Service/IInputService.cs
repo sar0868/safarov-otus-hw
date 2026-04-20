@@ -12,5 +12,6 @@ namespace Code
         bool HasMoveInput();
         bool HasLookInput();
         bool HasSootInput();
+
     }
 }
