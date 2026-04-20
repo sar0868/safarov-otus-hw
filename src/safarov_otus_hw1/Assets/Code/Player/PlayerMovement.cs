@@ -5,6 +5,7 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
+        // [SerializeField] private OldInputService _inputService;
         [SerializeField] private InputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _minimumVert = -40.0f;
@@ -15,31 +16,54 @@ namespace Code
         private float _rotationX = 0f;
         private float _rotationY = 0f;
         private float _sensitivityLook = 80.0f;
+        private Vector3 _velocity = Vector3.zero;
+        // private float _jump;
+        [SerializeField] private float _jumpHeight = 2f;
+        private bool _isGrounded;
         // private Vector3 _moveDirection;
 
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
             _camera = Camera.main;
+            // _inputService.jumpEvent.AddListener(OnJump);
         }
 
         private void Update()
         {
             Move();
             Look();
+            OnJump();
+        }
+
+        private void OnJump()
+        {
+            _isGrounded = _characterController.isGrounded;
+            if (_isGrounded && _velocity.y < 0)
+            {
+                _velocity.y = -2f;
+            }
+            // _velocity.y
+            if (Input.GetButtonDown("Jump") && _isGrounded)
+            {
+                // _jump = 0f;
+                _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+            }
+
+            _velocity.y += _gravity * Time.deltaTime;
+
+            // _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _characterController.Move(_velocity * Time.deltaTime);
+
+
         }
 
         private void Move()
         {
             float move_speed = _speed * Time.deltaTime;
 
-            float xInput = _inputService.move.x * move_speed;
-            // float xInput = Input.GetAxis("Horizontal") * move_speed;
-            // float xInput = _inputService.GetMoveAxisX() * move_speed;
-
-            // float zInput = _inputService.GetMoveAxisZ() * move_speed;
-            float zInput = _inputService.move.y * move_speed;
-            // float zInput = Input.GetAxis("Vertical") * move_speed;
+            float xInput = _inputService.Move().x * move_speed;
+            float zInput = _inputService.Move().y * move_speed;
 
             Vector3 move = new Vector3(xInput, 0, zInput);
             move = Vector3.ClampMagnitude(move, _speed);
@@ -55,10 +79,10 @@ namespace Code
 
         private void Look()
         {
-            _rotationX -= _inputService.look.y * _sensitivityLook * Time.deltaTime;
+            _rotationX -= _inputService.Look().y * _sensitivityLook * Time.deltaTime;
             _rotationX = Mathf.Clamp(_rotationX, _minimumVert, _maximumVert);
 
-            _rotationY += _inputService.look.x * _sensitivityLook * Time.deltaTime;
+            _rotationY += _inputService.Look().x * _sensitivityLook * Time.deltaTime;
 
             _camera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
 

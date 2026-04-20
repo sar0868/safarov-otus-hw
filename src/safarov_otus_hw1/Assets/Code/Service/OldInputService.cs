@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Code
@@ -6,44 +7,67 @@ namespace Code
 
     public sealed class OldInputService : MonoBehaviour, IInputService
     {
-        public float GetLookAxisX()
+        public UnityEvent jumpEvent = new();
+
+        public bool Jump()
         {
-            return Mouse.current.delta.value.x;
+            bool isJump = Input.GetKeyUp(KeyCode.Space);
+            if (isJump)
+            {
+                jumpEvent?.Invoke();
+            }
+            return isJump;
         }
 
-        public float GetLookAxisY()
+        public Vector2 Look()
         {
-            return Mouse.current.delta.value.y;
+            return new Vector2(Mouse.current.delta.value.x, Mouse.current.delta.value.y);
         }
 
-        public float GetMoveAxisX()
+        public Vector2 Move()
         {
-            return Input.GetAxis("Horizontal");
+            return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
 
-        public float GetMoveAxisZ()
-        {
-            return Input.GetAxis("Vertical");
-        }
+        // public float GetLookAxisX()
+        // {
+        //     return Mouse.current.delta.value.x;
+        // }
 
-        public bool HasJumpInput()
-        {
-            throw new System.NotImplementedException();
-        }
+        // public float GetLookAxisY()
+        // {
+        //     return Mouse.current.delta.value.y;
+        // }
 
-        public bool HasLookInput()
-        {
-            return Input.GetKeyUp(KeyCode.Space);
-        }
+        // public float GetMoveAxisX()
+        // {
+        //     return Input.GetAxis("Horizontal");
+        // }
 
-        public bool HasMoveInput()
-        {
-            return GetMoveAxisX() != 0 || GetMoveAxisZ() != 0;
-        }
+        // public float GetMoveAxisZ()
+        // {
+        //     return Input.GetAxis("Vertical");
+        // }
 
-        public bool HasSootInput()
-        {
-            return Input.GetMouseButton(0);
-        }
+        // public bool HasJumpInput()
+        // {
+        //     throw new System.NotImplementedException();
+        // }
+
+        // public bool HasLookInput()
+        // {
+        //     return Input.GetKeyUp(KeyCode.Space);
+        // }
+
+        // public bool HasMoveInput()
+        // {
+        //     return GetMoveAxisX() != 0 || GetMoveAxisZ() != 0;
+        // }
+
+        // public bool HasSootInput()
+        // {
+        //     return Input.GetMouseButton(0);
+        // }
+
     }
 }

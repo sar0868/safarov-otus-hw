@@ -4,19 +4,41 @@ using UnityEngine.InputSystem;
 
 namespace Code
 {
-    public sealed class InputService : MonoBehaviour
+    public sealed class InputService : MonoBehaviour, IInputService
     {
-        public Vector2 move;
-        public Vector2 look;
+        public UnityEvent jumpEvent = new();
+        private Vector2 _move;
+        private Vector2 _look;
+        private bool _jump;
 
-        public void OnMove(InputValue value)
+        private void OnMove(InputValue value)
         {
-            move = value.Get<Vector2>();
+            _move = value.Get<Vector2>();
         }
 
         public void OnLook(InputValue value)
         {
-            look = value.Get<Vector2>();
+            _look = value.Get<Vector2>();
+        }
+
+        public void OnJump(InputValue value)
+        {
+            _jump = value.isPressed;
+            jumpEvent?.Invoke();
+        }
+        public bool Jump()
+        {
+            return _jump;
+        }
+
+        public Vector2 Look()
+        {
+            return _look;
+        }
+
+        public Vector2 Move()
+        {
+            return _move;
         }
     }
 }
