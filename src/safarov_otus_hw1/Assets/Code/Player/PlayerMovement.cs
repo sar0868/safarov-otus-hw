@@ -5,35 +5,31 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
-        // [SerializeField] private OldInputService _inputService;
-        [SerializeField] private InputService _inputService;
+        [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _minimumVert = -40.0f;
         [SerializeField] private float _maximumVert = 45.0f;
+        [SerializeField] private float _sensitivityLook = 20.0f;
+        [SerializeField] private float _jumpHeight = 2f;
         private CharacterController _characterController;
-        private Camera _camera;
         private float _gravity = -9.81f;
+        private Camera _camera;
         private float _rotationX = 0f;
         private float _rotationY = 0f;
-        private float _sensitivityLook = 80.0f;
         private Vector3 _velocity = Vector3.zero;
-        // private float _jump;
-        [SerializeField] private float _jumpHeight = 2f;
         private bool _isGrounded;
-        // private Vector3 _moveDirection;
 
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
             _camera = Camera.main;
-            // _inputService.jumpEvent.AddListener(OnJump);
         }
 
         private void Update()
         {
-            Move();
-            Look();
             OnJump();
+            Look();
+            Move();
         }
 
         private void OnJump()
@@ -43,18 +39,12 @@ namespace Code
             {
                 _velocity.y = -2f;
             }
-            // _velocity.y
-            if (Input.GetButtonDown("Jump") && _isGrounded)
+            if (_inputService.Jump() && _isGrounded)
             {
-                // _jump = 0f;
                 _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
             }
 
             _velocity.y += _gravity * Time.deltaTime;
-
-            // _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _characterController.Move(_velocity * Time.deltaTime);
-
 
         }
 
@@ -69,12 +59,8 @@ namespace Code
             move = Vector3.ClampMagnitude(move, _speed);
             move.y = _gravity;
             move = transform.TransformDirection(move);
-            // _moveDirection = transform.right * xInput + transform.forward * zInput;
 
-            // if (_inputService.HasMoveInput())
-            // {
-            _characterController.Move(move);
-            // }
+            _characterController.Move(move + _velocity);
         }
 
         private void Look()
