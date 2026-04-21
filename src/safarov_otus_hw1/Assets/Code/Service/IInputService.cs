@@ -7,7 +7,7 @@ namespace Code
 
         public Vector2 Move();
 
-        public Vector2 Look();
+        public float Look();
 
         public bool Jump();
     }

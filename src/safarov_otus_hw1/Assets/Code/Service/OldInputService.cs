@@ -12,9 +12,9 @@ namespace Code
             return Input.GetButtonDown("Jump");
         }
 
-        public Vector2 Look()
+        public float Look()
         {
-            return new Vector2(Mouse.current.delta.value.x, Mouse.current.delta.value.y);
+            return Mouse.current.delta.value.x;
         }
 
         public Vector2 Move()

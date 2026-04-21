@@ -7,22 +7,16 @@ namespace Code
     {
         [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _speed = 10f;
-        [SerializeField] private float _minimumVert = -40.0f;
-        [SerializeField] private float _maximumVert = 45.0f;
         [SerializeField] private float _sensitivityLook = 20.0f;
-        [SerializeField] private float _jumpHeight = 2f;
+        [SerializeField] private Animator _animator;
         private CharacterController _characterController;
         private float _gravity = -9.81f;
-        private Camera _camera;
-        private float _rotationX = 0f;
         private float _rotationY = 0f;
-        private Vector3 _velocity = Vector3.zero;
         private bool _isGrounded;
 
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
-            _camera = Camera.main;
         }
 
         private void Update()
@@ -35,17 +29,14 @@ namespace Code
         private void OnJump()
         {
             _isGrounded = _characterController.isGrounded;
-            if (_isGrounded && _velocity.y < 0)
+            if (_isGrounded)
             {
-                _velocity.y = -2f;
+                _animator.SetBool("Jump", false);
             }
             if (_inputService.Jump() && _isGrounded)
             {
-                _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+                _animator.SetBool("Jump", true);
             }
-
-            _velocity.y += _gravity * Time.deltaTime;
-
         }
 
         private void Move()
@@ -55,23 +46,26 @@ namespace Code
             float xInput = _inputService.Move().x * move_speed;
             float zInput = _inputService.Move().y * move_speed;
 
+            if (_inputService.Move().y != 0)
+            {
+                _animator.SetBool("Move", true);
+            }
+            else
+            {
+                _animator.SetBool("Move", false);
+            }
+
             Vector3 move = new Vector3(xInput, 0, zInput);
             move = Vector3.ClampMagnitude(move, _speed);
             move.y = _gravity;
             move = transform.TransformDirection(move);
 
-            _characterController.Move(move + _velocity);
+            _characterController.Move(move);
         }
 
         private void Look()
         {
-            _rotationX -= _inputService.Look().y * _sensitivityLook * Time.deltaTime;
-            _rotationX = Mathf.Clamp(_rotationX, _minimumVert, _maximumVert);
-
-            _rotationY += _inputService.Look().x * _sensitivityLook * Time.deltaTime;
-
-            _camera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
-
+            _rotationY += _inputService.Look() * _sensitivityLook * Time.deltaTime;
             transform.rotation = Quaternion.Euler(Vector3.up * _rotationY);
         }
     }
