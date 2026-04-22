@@ -19,6 +19,7 @@ namespace Code
         {
             _characterController = GetComponent<CharacterController>();
             _inputService.jumpEvent.AddListener(OnJump);
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 
