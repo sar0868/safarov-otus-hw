@@ -12,6 +12,7 @@ namespace Code
         private float _look;
         private bool _jump;
         private bool _attack;
+        // создать перезарядку провой кнопкой мыши
 
         private void OnMove(InputValue value)
         {

@@ -62,7 +62,6 @@ namespace Code
 
         protected void OnTriggerEnter(Collider other)
         {
-
             transform.SetParent(_weaponRoot);
             _player.TryGetComponent(out WeaponController weaponController);
             weaponController.AddWeapon(this);
