@@ -14,7 +14,7 @@ namespace Code
         private bool _jump;
         private bool _attack;
         private bool _recharge;
-        // создать перезарядку провой кнопкой мыши
+
 
         private void OnMove(InputValue value)
         {
