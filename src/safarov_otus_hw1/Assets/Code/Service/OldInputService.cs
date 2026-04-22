@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Code
@@ -6,10 +7,29 @@ namespace Code
 
     public sealed class OldInputService : MonoBehaviour, IInputService
     {
+        public UnityEvent jumpEvent = new();
+        public UnityEvent attackEvent = new();
 
-        public bool Jump()
+        void Update()
         {
-            return Input.GetButtonDown("Jump");
+            Jump();
+            Attack();
+        }
+
+        public void Attack()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attackEvent?.Invoke();
+            }
+        }
+
+        public void Jump()
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                jumpEvent?.Invoke();
+            }
         }
 
         public float Look()

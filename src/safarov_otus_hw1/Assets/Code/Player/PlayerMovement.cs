@@ -5,7 +5,8 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private OldInputService _inputService;
+        [SerializeField] private NewInputService _inputService;
+        // [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
         [SerializeField] private Animator _animator;
@@ -17,26 +18,19 @@ namespace Code
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
+            _inputService.jumpEvent.AddListener(OnJump);
         }
+
 
         private void Update()
         {
-            OnJump();
             Look();
             Move();
         }
 
         private void OnJump()
         {
-            _isGrounded = _characterController.isGrounded;
-            if (_isGrounded)
-            {
-                _animator.SetBool("Jump", false);
-            }
-            if (_inputService.Jump() && _isGrounded)
-            {
-                _animator.SetBool("Jump", true);
-            }
+            _animator.SetTrigger("Jump");
         }
 
         private void Move()

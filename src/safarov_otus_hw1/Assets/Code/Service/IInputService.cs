@@ -9,6 +9,7 @@ namespace Code
 
         public float Look();
 
-        public bool Jump();
+        public void Jump();
+        public void Attack();
     }
 }

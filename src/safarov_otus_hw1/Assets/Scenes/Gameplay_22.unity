@@ -1520,6 +1520,24 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5217009034759064855, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
   m_PrefabInstance: {fileID: 1810993751}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1260351028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1571042049591659991, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
+  m_PrefabInstance: {fileID: 1810993751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1260351029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260351028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd8aa05b596b88580e6adfccf6f335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _inputService: {fileID: 1602423267}
 --- !u!4 &1272015713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228488591984808873, guid: 2ec728f47514da607bb107b02e31e470, type: 3}
@@ -1707,12 +1725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca0234194484e0eb9947a39dbd300a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.PlayerMovement
-  _inputService: {fileID: 1602423263}
+  _inputService: {fileID: 1602423267}
   _speed: 5
-  _minimumVert: -40
-  _maximumVert: 45
   _sensitivityLook: 10
-  _jumpHeight: 6
   _animator: {fileID: 1215429157}
 --- !u!143 &1419011342
 CharacterController:
@@ -1816,6 +1831,7 @@ GameObject:
   - component: {fileID: 1602423263}
   - component: {fileID: 1602423265}
   - component: {fileID: 1602423266}
+  - component: {fileID: 1602423267}
   m_Layer: 0
   m_Name: '[System]'
   m_TagString: Untagged
@@ -1835,6 +1851,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2307d9ee5bf470aa7fd5bc1908a9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.OldInputService
+  jumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1602423264
 Transform:
   m_ObjectHideFlags: 0
@@ -1857,7 +1879,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602423262}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -1892,6 +1914,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f955354ab1ae8480a8ddca6cc3ae1a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1602423267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602423262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93a2ab2d486dea9785484a4efdff7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.NewInputService
+  attackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  jumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1645324439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2473,13 +2513,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5217009034759064855, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217009034759064855, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ae34cb78b3dadf56186d43a6db7f0573, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1571042049591659991, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1260351029}
   m_SourcePrefab: {fileID: 100100000, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
 --- !u!4 &1869788303 stripped
 Transform:
