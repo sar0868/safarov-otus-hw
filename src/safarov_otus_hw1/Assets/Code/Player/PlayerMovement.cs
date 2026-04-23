@@ -6,7 +6,6 @@ namespace Code
     public sealed class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private NewInputService _inputService;
-        // [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
         [SerializeField] private Animator _animator;
@@ -40,6 +39,8 @@ namespace Code
 
             float xInput = _inputService.move.x * move_speed;
             float zInput = _inputService.move.y * move_speed;
+
+
 
             if (_inputService.move.y != 0)
             {
