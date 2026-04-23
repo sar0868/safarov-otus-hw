@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.PauseMenu
   _backGame: {fileID: 997032193}
   _exitManeMenu: {fileID: 1662005995}
+  _playerInput: {fileID: 1602423265}
 --- !u!224 &80109373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3341,7 +3342,7 @@ MonoBehaviour:
   _inputService: {fileID: 1602423267}
   _radius: 3
   _countCharges: 3
-  _playerAnimation: {fileID: 1260351030}
+  _animator: {fileID: 1215429157}
 --- !u!1001 &1484672285
 PrefabInstance:
   m_ObjectHideFlags: 0

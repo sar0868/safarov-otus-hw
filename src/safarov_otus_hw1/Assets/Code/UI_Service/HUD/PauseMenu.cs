@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Code
     {
         [SerializeField] private Button _backGame;
         [SerializeField] private Button _exitManeMenu;
+        [SerializeField] private PlayerInput _playerInput;
         private bool _isPause;
 
 
@@ -51,6 +53,7 @@ namespace Code
                 Cursor.lockState = CursorLockMode.Confined;
                 _isPause = true;
                 AudioListener.pause = true;
+                _playerInput.SwitchCurrentActionMap("UI");
             }
 
         }
@@ -64,6 +67,7 @@ namespace Code
                 Cursor.lockState = CursorLockMode.Locked;
                 _isPause = false;
                 AudioListener.pause = false;
+                _playerInput.SwitchCurrentActionMap("Player");
             }
         }
 
