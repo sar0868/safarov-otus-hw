@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,19 +6,30 @@ namespace Code
 {
     public sealed class Attack : MonoBehaviour
     {
+        public static event Action<int> OnChargesChanged;
         [SerializeField] private NewInputService _inputService;
         // [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _radius;
         [SerializeField] private int _countCharges;
+
         private Animator _animator;
         private int _layerMask;
-        [SerializeField] private int _charges;
+        private int _charges;
         private float _slashDelay;
         private float _chargeDistance = 5f;
         private float _slashDistance = 0.05f;
         private float _currentDistance;
 
+        public int Charges
+        {
+            get => _charges;
+            set
+            {
+                _charges = value;
+                OnChargesChanged?.Invoke(_charges);
+            }
 
+        }
 
         private void Awake()
         {
@@ -26,6 +38,7 @@ namespace Code
             _inputService.rechargeEvent.AddListener(Recharge);
             _layerMask = LayerMask.GetMask("Enemy");
             _currentDistance = _slashDistance;
+            Charges = 0;
         }
 
         public void Slash()
@@ -41,7 +54,7 @@ namespace Code
             if (IsCharges())
             {
                 _currentDistance = _chargeDistance;
-                _charges--;
+                Charges--;
 
             }
             else
@@ -68,12 +81,12 @@ namespace Code
             {
                 return;
             }
-            _charges = _countCharges;
+            Charges = _countCharges;
         }
 
         private bool IsCharges()
         {
-            return _charges > 0;
+            return Charges > 0;
         }
     }
 }
