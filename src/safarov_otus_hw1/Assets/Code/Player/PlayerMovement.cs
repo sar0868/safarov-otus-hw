@@ -51,6 +51,21 @@ namespace Code
                 _animator.SetBool("Move", false);
             }
 
+            if (xInput > 0)
+            {
+                _animator.SetBool("Left", true);
+            }
+            else if (xInput < 0)
+            {
+                _animator.SetBool("Right", true);
+            }
+            else
+            {
+                _animator.SetBool("Left", false);
+                _animator.SetBool("Right", false);
+            }
+
+
             Vector3 move = new Vector3(xInput, 0, zInput);
             move = Vector3.ClampMagnitude(move, _speed);
             move.y = _gravity;
