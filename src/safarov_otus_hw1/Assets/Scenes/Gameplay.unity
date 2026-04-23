@@ -2950,7 +2950,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1571042049591659991, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
   m_PrefabInstance: {fileID: 1810993751}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1260351029
+--- !u!114 &1260351030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2959,12 +2959,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260351028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33bd8aa05b596b88580e6adfccf6f335, type: 3}
+  m_Script: {fileID: 11500000, guid: a6b00755497332bad8224f7541203aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _inputService: {fileID: 1602423267}
-  _radius: 3
-  _countCharges: 3
 --- !u!4 &1272015713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228488591984808873, guid: 2ec728f47514da607bb107b02e31e470, type: 3}
@@ -3263,6 +3260,7 @@ GameObject:
   - component: {fileID: 1419011340}
   - component: {fileID: 1419011342}
   - component: {fileID: 1419011341}
+  - component: {fileID: 1419011343}
   m_Layer: 0
   m_Name: PlayerCapsule
   m_TagString: Untagged
@@ -3328,6 +3326,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &1419011343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419011339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd8aa05b596b88580e6adfccf6f335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Attack
+  _inputService: {fileID: 1602423267}
+  _radius: 3
+  _countCharges: 3
+  _playerAnimation: {fileID: 1260351030}
 --- !u!1001 &1484672285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3402,7 +3416,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602423264}
-  - component: {fileID: 1602423263}
   - component: {fileID: 1602423265}
   - component: {fileID: 1602423266}
   - component: {fileID: 1602423267}
@@ -3413,24 +3426,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1602423263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602423262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2307d9ee5bf470aa7fd5bc1908a9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.OldInputService
-  jumpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1602423264
 Transform:
   m_ObjectHideFlags: 0
@@ -3510,6 +3505,8 @@ MonoBehaviour:
   jumpEvent:
     m_PersistentCalls:
       m_Calls: []
+  move: {x: 0, y: 0}
+  look: 0
 --- !u!1001 &1645324439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4250,7 +4247,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1571042049591659991, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1260351029}
+      addedObject: {fileID: 1260351030}
   m_SourcePrefab: {fileID: 100100000, guid: 61b3e3801d56a3f429556c96ea2f07d6, type: 3}
 --- !u!4 &1869788303 stripped
 Transform:

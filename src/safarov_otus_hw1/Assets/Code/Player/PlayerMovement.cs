@@ -38,10 +38,10 @@ namespace Code
         {
             float move_speed = _speed * Time.deltaTime;
 
-            float xInput = _inputService.Move().x * move_speed;
-            float zInput = _inputService.Move().y * move_speed;
+            float xInput = _inputService.move.x * move_speed;
+            float zInput = _inputService.move.y * move_speed;
 
-            if (_inputService.Move().y != 0)
+            if (_inputService.move.y != 0)
             {
                 _animator.SetBool("Move", true);
             }
@@ -60,7 +60,7 @@ namespace Code
 
         private void Look()
         {
-            _rotationY += _inputService.Look() * _sensitivityLook * Time.deltaTime;
+            _rotationY += _inputService.look * _sensitivityLook * Time.deltaTime;
             transform.rotation = Quaternion.Euler(Vector3.up * _rotationY);
         }
     }

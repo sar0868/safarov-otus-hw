@@ -8,9 +8,9 @@ namespace Code
     {
         public static event Action<int> OnChargesChanged;
         [SerializeField] private NewInputService _inputService;
-        // [SerializeField] private OldInputService _inputService;
         [SerializeField] private float _radius;
         [SerializeField] private int _countCharges;
+        [SerializeField] private PlayerAnimation _playerAnimation;
 
         private Animator _animator;
         private int _layerMask;
@@ -33,11 +33,16 @@ namespace Code
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            _animator = _playerAnimation.GetComponent<Animator>();
             _inputService.attackEvent.AddListener(Slash);
             _inputService.rechargeEvent.AddListener(Recharge);
             _layerMask = LayerMask.GetMask("Enemy");
             _currentDistance = _slashDistance;
+
+        }
+
+        private void Start()
+        {
             Charges = 0;
         }
 
