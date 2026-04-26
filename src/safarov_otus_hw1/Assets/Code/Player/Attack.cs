@@ -11,6 +11,7 @@ namespace Code
         [SerializeField] private float _radius;
         [SerializeField] private int _countCharges;
         [SerializeField] private Animator _animator;
+        [SerializeField] private int _damage = 1;
 
         private int _layerMask;
         private int _charges;
@@ -72,7 +73,7 @@ namespace Code
                     Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
                     if (enemy != null)
                     {
-                        enemy.ReactToHit();
+                        enemy.ReactToHit(_damage);
                     }
                 }
             }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,17 +8,24 @@ namespace Code
     public sealed class Enemy : MonoBehaviour
     {
 
-        [SerializeField] private Animator _animator;
         [SerializeField] private Transform _patrolRoute;
 
         public List<Transform> locations;
+
+        // private Animator _animator;
         private int _locationIndex = 0;
-        [SerializeField] private NavMeshAgent _agent;
+        private NavMeshAgent _agent;
+        private int _hp = 3;
+        private Renderer _renderer;
+
+        public int Hp { get => _hp; set => _hp = value; }
 
         private void Start()
         {
             InitializePatrolRoute();
-            // _agent = GetComponent<NavMeshAgent>();
+            _agent = GetComponent<NavMeshAgent>();
+            _renderer = GetComponent<Renderer>();
+            // _animator = GetComponent<Animator>();
             MoveToNextPatrolLocation();
         }
 
@@ -39,6 +45,7 @@ namespace Code
             }
             _agent.destination = locations[_locationIndex].position;
             _locationIndex = (_locationIndex + 1) % locations.Count;
+            // _animator.SetTrigger("Walk");
         }
 
         private void InitializePatrolRoute()
@@ -49,19 +56,27 @@ namespace Code
             }
         }
 
-        public void ReactToHit()
+        public void ReactToHit(int damage)
         {
 
-            StartCoroutine(Die());
-            // _animator.SetBool("Death", true);
+            Damage(damage);
         }
+
+        private void Damage(int damage)
+        {
+            _hp -= damage;
+            if (_hp <= 0)
+            {
+                StartCoroutine(Die());
+            }
+        }
+
 
         private IEnumerator Die()
         {
-
-            transform.Rotate(-90f, 0f, 0f);
+            _agent.isStopped = true;
+            _renderer.material.color = Color.green;
             yield return new WaitForSeconds(1f);
-
             gameObject.SetActive(false);
             // Destroy(gameObject);
         }
