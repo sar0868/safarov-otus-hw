@@ -9,6 +9,7 @@ namespace Code
     {
 
         [SerializeField] private Transform _patrolRoute;
+        [SerializeField] private Conditions _conditions;
 
         public List<Transform> locations;
 
@@ -68,12 +69,13 @@ namespace Code
             if (_hp <= 0)
             {
                 StartCoroutine(Die());
+
             }
         }
 
-
         private IEnumerator Die()
         {
+            _conditions.KilledEnemy();
             _agent.isStopped = true;
             _renderer.material.color = Color.green;
             yield return new WaitForSeconds(1f);

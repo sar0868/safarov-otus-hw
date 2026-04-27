@@ -7,5 +7,10 @@ namespace Code
         public static WinLoseService Instance;
         [SerializeField] private WinWindow _winWindow;
         [SerializeField] private LoseWindow _loseWindow;
+
+        public void ShowWinWindow()
+        {
+            _winWindow.Show();
+        }
     }
 }

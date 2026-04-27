@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &64549381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: main menu
+  m_text: get x2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: back to game
+  m_text: "\u0441\u043E\u0431\u0440\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2879,11 +2879,11 @@ RectTransform:
   - {fileID: 1997417937}
   m_Father: {fileID: 1865329352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 114}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -205, y: 275}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1352327145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,21 +2893,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352327143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
   m_Padding:
     m_Left: 0
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_Spacing: 100
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!1001 &1363273918
@@ -3212,6 +3212,7 @@ GameObject:
   - component: {fileID: 1419011342}
   - component: {fileID: 1419011341}
   - component: {fileID: 1419011343}
+  - component: {fileID: 1419011344}
   m_Layer: 0
   m_Name: PlayerCapsule
   m_TagString: Untagged
@@ -3294,6 +3295,18 @@ MonoBehaviour:
   _countCharges: 3
   _animator: {fileID: 1215429157}
   _damage: 1
+--- !u!114 &1419011344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419011339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7c1ad683b174ac7a98dc19e3b894c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1450969225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,9 +3318,8 @@ GameObject:
   - component: {fileID: 1450969226}
   - component: {fileID: 1450969229}
   - component: {fileID: 1450969228}
-  - component: {fileID: 1450969227}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3332,18 +3344,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1450969227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450969225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebebaad1b36844e01a1d5957a0f34b3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &1450969228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,7 +3357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.8235294}
+  m_Color: {r: 0.18039216, g: 0.19215687, b: 0.19607843, a: 0.9372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3602,6 +3602,7 @@ GameObject:
   - component: {fileID: 1602423267}
   - component: {fileID: 1602423268}
   - component: {fileID: 1602423269}
+  - component: {fileID: 1602423270}
   m_Layer: 0
   m_Name: '[System]'
   m_TagString: Untagged
@@ -3716,6 +3717,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.WinLoseService
   _winWindow: {fileID: 1865329353}
   _loseWindow: {fileID: 64549382}
+--- !u!114 &1602423270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602423262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276830531f12140d2ae55a0c21cf85fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.Conditions
 --- !u!1001 &1645324439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6016,17 +6029,17 @@ RectTransform:
   m_GameObject: {fileID: 1865329351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2209, y: 1.2209, z: 1.2209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1450969226}
   - {fileID: 1352327144}
   m_Father: {fileID: 917999077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.201172, y: 23.833252}
-  m_SizeDelta: {x: 500, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865329353
 MonoBehaviour:
@@ -6040,6 +6053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54d34f26ac434b92b2e5d49dbeceec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _playerInput: {fileID: 1602423265}
 --- !u!1 &1865775053
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,9 +6088,9 @@ RectTransform:
   - {fileID: 2048306132}
   m_Father: {fileID: 889830752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -250}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865775055
@@ -6177,7 +6191,6 @@ GameObject:
   - component: {fileID: 1900429101}
   - component: {fileID: 1900429104}
   - component: {fileID: 1900429103}
-  - component: {fileID: 1900429102}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -6204,18 +6217,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1900429102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900429100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebebaad1b36844e01a1d5957a0f34b3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &1900429103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6267,7 +6268,7 @@ GameObject:
   - component: {fileID: 1937596269}
   - component: {fileID: 1937596268}
   m_Layer: 5
-  m_Name: Back_Btn
+  m_Name: "\u0421ollect_Btn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6350,7 +6351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.84871334, b: 0.082013145, a: 1}
+  m_Color: {r: 0.16470589, g: 0.6901961, b: 0.99607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6532,7 +6533,6 @@ GameObject:
   - component: {fileID: 1956637462}
   - component: {fileID: 1956637465}
   - component: {fileID: 1956637464}
-  - component: {fileID: 1956637463}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -6559,18 +6559,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1956637463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956637461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebebaad1b36844e01a1d5957a0f34b3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &1956637464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6791,7 +6779,7 @@ GameObject:
   - component: {fileID: 1997417939}
   - component: {fileID: 1997417938}
   m_Layer: 5
-  m_Name: Exit_MainMenu_Btn
+  m_Name: Advertisement_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6874,7 +6862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.84871334, b: 0.082013145, a: 1}
+  m_Color: {r: 1, g: 0.6431373, b: 0.1764706, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7205,9 +7193,9 @@ RectTransform:
   - {fileID: 1481987888}
   m_Father: {fileID: 889830752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056178160
@@ -7622,6 +7610,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741345382311825873, guid: f70631b845662430ab839c42c26b82d3, type: 3}
+      propertyPath: _conditions
+      value: 
+      objectReference: {fileID: 1602423270}
     - target: {fileID: 741345382311825873, guid: f70631b845662430ab839c42c26b82d3, type: 3}
       propertyPath: _patrolRoute
       value: 
