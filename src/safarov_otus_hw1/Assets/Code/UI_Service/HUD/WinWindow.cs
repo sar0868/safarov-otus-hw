@@ -7,19 +7,26 @@ using System;
 
 namespace Code
 {
-    [RequireComponent(typeof(CanvasGroup))]
     public class WinWindow : MonoBehaviour
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private Button _collect_Btn;
         [SerializeField] private Button _advertisement_Btn;
+        [SerializeField] private CanvasGroup _background;
+        [SerializeField] private CanvasGroup _buttonGroup;
+        [SerializeField] private CanvasGroup _textWin;
+        [SerializeField] private CoinsWinWindow _coins;
+        [SerializeField] private CoinsWinWindow _enemies;
 
-        private CanvasGroup _windowGroup;
+        private Sequence _sequence;
 
         private void Awake()
         {
             gameObject.SetActive(false);
-            _windowGroup = GetComponent<CanvasGroup>();
+
+            _background.alpha = 0f;
+            _buttonGroup.alpha = 0f;
+            _textWin.alpha = 0f;
         }
 
         public void Show()
@@ -28,7 +35,20 @@ namespace Code
             Cursor.lockState = CursorLockMode.Confined;
             AudioListener.pause = true;
             _playerInput.SwitchCurrentActionMap("UI");
-            _windowGroup.DOFade(1f, 1f);
+
+            _sequence?.Kill();
+            _sequence = null;
+            _sequence = DOTween.Sequence();
+            _sequence.Append(_background.DOFade(1f, 2f))
+            .AppendInterval(1f)
+            .Join(_textWin.DOFade(1f, 0.5f))
+            .AppendInterval(0.5f)
+            .Join(_buttonGroup.DOFade(1f, 0.5f))
+            .OnComplete(() =>
+            {
+                _coins.FallCoins();
+                _enemies.FallCoins();
+            });
         }
 
         private void OnEnable()
@@ -50,7 +70,11 @@ namespace Code
 
         private void Collect()
         {
-            _windowGroup.DOFade(0f, 1f).OnComplete(() => ExitGame());
+            _sequence?.Kill();
+            _sequence = null;
+            _sequence = DOTween.Sequence();
+            _sequence.SetLink(gameObject)
+            .OnComplete(() => ExitGame());
         }
 
         private void ExitGame()
