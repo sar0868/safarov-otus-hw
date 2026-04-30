@@ -21,7 +21,5 @@ namespace Code
         {
             _chargesBar.text = $"Charges: {countCharges}";
         }
-
     }
 }
-

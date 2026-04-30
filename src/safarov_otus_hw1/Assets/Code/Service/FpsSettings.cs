@@ -10,5 +10,4 @@ namespace Code
             Application.targetFrameRate = 60;
         }
     }
-
 }

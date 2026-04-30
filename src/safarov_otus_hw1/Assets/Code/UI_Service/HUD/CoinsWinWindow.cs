@@ -1,7 +1,6 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code
 {
@@ -31,6 +30,5 @@ namespace Code
             .AppendInterval(0.5f)
             .Append(_text.DOFade(1f, 0.2f));
         }
-
     }
 }

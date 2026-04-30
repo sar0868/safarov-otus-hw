@@ -35,26 +35,5 @@ namespace Code
         {
             jumpEvent?.Invoke();
         }
-
-        // public void Attack()
-        // {
-
-        // }
-
-        // public void Jump()
-        // {
-
-        // }
-
-        // public float Look()
-        // {
-        //     return _look;
-        // }
-
-        // public Vector2 Move()
-        // {
-        //     return _move;
-        // }
     }
-
 }

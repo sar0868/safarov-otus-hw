@@ -83,6 +83,5 @@ namespace Code
             AudioListener.pause = false;
             SceneManager.LoadScene("MainMenu");
         }
-
     }
 }

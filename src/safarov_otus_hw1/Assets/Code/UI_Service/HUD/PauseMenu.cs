@@ -19,7 +19,6 @@ namespace Code
             gameObject.SetActive(false);
         }
 
-
         private void OnEnable()
         {
             _backGame.onClick.AddListener(BackToGame);
@@ -55,7 +54,6 @@ namespace Code
                 AudioListener.pause = true;
                 _playerInput.SwitchCurrentActionMap("UI");
             }
-
         }
 
         private void Resume()
@@ -70,9 +68,5 @@ namespace Code
                 _playerInput.SwitchCurrentActionMap("Player");
             }
         }
-
     }
-
 }
-
-

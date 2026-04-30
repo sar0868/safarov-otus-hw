@@ -5,7 +5,6 @@ namespace Code
     public class Conditions : MonoBehaviour
     {
         private WinLoseService _winLoseService;
-
         private int _killedEnemies = 0;
         private int _winCondition = 2;
         private int _countCoins = 0;
@@ -48,4 +47,3 @@ namespace Code
         }
     }
 }
-

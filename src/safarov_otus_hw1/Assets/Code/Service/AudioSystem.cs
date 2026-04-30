@@ -17,5 +17,4 @@ namespace Code
             _audioMixer.SetFloat("volume_step", 10f);
         }
     }
-
 }
