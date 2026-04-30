@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using System;
 
 namespace Code
 {
@@ -17,6 +16,7 @@ namespace Code
         [SerializeField] private CanvasGroup _textWin;
         [SerializeField] private CoinsWinWindow _coins;
         [SerializeField] private CoinsWinWindow _enemies;
+        [SerializeField] private Conditions _conditions;
 
         private Sequence _sequence;
 
@@ -46,8 +46,8 @@ namespace Code
             .Join(_buttonGroup.DOFade(1f, 0.5f))
             .OnComplete(() =>
             {
-                _coins.FallCoins();
-                _enemies.FallCoins();
+                _coins.FallResult(_conditions.CountCoins);
+                _enemies.FallResult(_conditions.CountKilledEnemies);
             });
         }
 

@@ -6,11 +6,13 @@ namespace Code
     {
         private WinLoseService _winLoseService;
 
-        private int _killedEnemies;
-        private int _winCondition = 1;
-        [SerializeField] private int _countCoins = 0;
+        private int _killedEnemies = 0;
+        private int _winCondition = 2;
+        private int _countCoins = 0;
+
 
         public int CountCoins { get => _countCoins; }
+        public int CountKilledEnemies { get => _killedEnemies; }
 
         private void Awake()
         {
@@ -19,7 +21,7 @@ namespace Code
 
         private bool IsWin()
         {
-            if (_killedEnemies >= _winCondition)
+            if (CountKilledEnemies >= _winCondition)
             {
                 return true;
             }
@@ -38,6 +40,11 @@ namespace Code
         public void AddCoun()
         {
             _countCoins++;
+        }
+
+        public void KillNPC()
+        {
+            _winLoseService.ShowLoseWindow();
         }
     }
 }

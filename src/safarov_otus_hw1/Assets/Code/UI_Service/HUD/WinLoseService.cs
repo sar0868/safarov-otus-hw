@@ -12,5 +12,9 @@ namespace Code
         {
             _winWindow.Show();
         }
+        public void ShowLoseWindow()
+        {
+            _loseWindow.Show();
+        }
     }
 }

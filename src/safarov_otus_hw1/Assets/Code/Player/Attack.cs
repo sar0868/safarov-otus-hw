@@ -12,8 +12,12 @@ namespace Code
         [SerializeField] private int _countCharges;
         [SerializeField] private Animator _animator;
         [SerializeField] private int _damage = 1;
+        [SerializeField] private LayerMask _targetLayers;
+        [SerializeField] private Conditions _conditions;
 
-        private int _layerMask;
+
+        // private int _layerMask;
+        // private int _layerMaskNPC;
         private int _charges;
         private float _slashDelay;
         private float _chargeDistance = 5f;
@@ -35,7 +39,8 @@ namespace Code
         {
             _inputService.attackEvent.AddListener(Slash);
             _inputService.rechargeEvent.AddListener(Recharge);
-            _layerMask = LayerMask.GetMask("Enemy");
+            // _layerMask = LayerMask.GetMask("Enemy");
+            // _layerMaskNPC = LayerMask.GetMask("NPC");
             _currentDistance = _slashDistance;
 
         }
@@ -65,11 +70,16 @@ namespace Code
             {
                 _currentDistance = _slashDistance;
             }
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, _radius, transform.forward, _currentDistance, _layerMask);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, _radius, transform.forward, _currentDistance, _targetLayers);
             if (hits != null)
             {
                 foreach (RaycastHit hit in hits)
                 {
+                    if (hit.collider.CompareTag("NPC"))
+                    {
+                        _conditions.KillNPC();
+                    }
+
                     Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
                     if (enemy != null)
                     {
