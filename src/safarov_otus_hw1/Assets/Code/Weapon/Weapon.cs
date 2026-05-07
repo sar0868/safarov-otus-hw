@@ -1,24 +1,25 @@
+using Code.Service;
 using UnityEngine;
 
 namespace Code.Weapon
 {
     public class Weapon : MonoBehaviour
     {
-        private Collider _collider;
+        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private InputService _inputService;
+
+        private Transform _bulletsRoot;
 
         private void Awake()
         {
-            _collider = GetComponent<Collider>();
+            _bulletsRoot = transform.Find("Bullets_Root");
+            _inputService.attackEvent.AddListener(Fire);
         }
 
-        public void Shoot()
+        public void Fire()
         {
-
-        }
-
-        public void Recharge()
-        {
-
+            Bullet bullet = Instantiate(_bulletPrefab, _bulletsRoot);
+            bullet.Run(_bulletsRoot.forward, _bulletsRoot.position);
         }
 
     }

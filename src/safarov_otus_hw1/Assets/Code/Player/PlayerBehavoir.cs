@@ -1,4 +1,3 @@
-using System;
 using Code.Service;
 using UnityEngine;
 
@@ -60,6 +59,7 @@ namespace Code.Player
             float zInput = _inputService.move.y * _speed;
 
             Vector3 move = new Vector3(xInput, 0, zInput) * Time.fixedDeltaTime;
+
             _rigidbody.AddRelativeForce(move, ForceMode.Impulse);
         }
 
