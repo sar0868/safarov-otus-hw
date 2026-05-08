@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814696c53ee9b4f1086ff6427c4110ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _enemyPrefab: {fileID: 2847174271096451164, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
+  _enemyPrefab: {fileID: 6803173147551369855, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
   _countEnemies: 100
   _limitEnemies: 10
   _enemiesPoint: {fileID: 2117134367}
