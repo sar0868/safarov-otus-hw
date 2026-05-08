@@ -15,7 +15,8 @@ namespace Code.Enemy
         public void Died()
         {
             _enemySpawn.SpawnedEnemies--;
-            gameObject.SetActive(false);
+            _enemySpawn.ReturnEnemy(this.gameObject);
+            // gameObject.SetActive(false);
         }
     }
 }
