@@ -168,6 +168,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040da94da0d9d4bdeb90bcded88c1ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1 &66342916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66342917}
+  - component: {fileID: 66342918}
+  m_Layer: 0
+  m_Name: EnemySpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &66342917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66342916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 173677847}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66342918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66342916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814696c53ee9b4f1086ff6427c4110ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _enemyPrefab: {fileID: 2847174271096451164, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
+  _countEnemies: 100
+  _limitEnemies: 10
+  _enemiesPoint: {fileID: 2117134367}
+  _minTime: 3
+  _maxTime: 5
 --- !u!1 &173677845
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +249,7 @@ Transform:
   m_Children:
   - {fileID: 50591155}
   - {fileID: 776310459}
+  - {fileID: 66342917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339045072
@@ -765,7 +816,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -780,7 +831,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -858,11 +909,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!4 &1179998002 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-  m_PrefabInstance: {fileID: 128992062552399416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1276371041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 658088998839844374, guid: b16a666ef4f1e444499d7e5f7cf254dc, type: 3}
@@ -891,6 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2117134366}
+  - component: {fileID: 2117134367}
   m_Layer: 0
   m_Name: EnemiesPoint
   m_TagString: Untagged
@@ -910,67 +957,21 @@ Transform:
   m_LocalPosition: {x: -11, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1179998002}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &128992062552399416
-PrefabInstance:
+--- !u!114 &2117134367
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2117134366}
-    m_Modifications:
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501012033744423730, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6803173147551369855, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 66eaedd1c97b14086b10ccf9f20b4e7e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117134365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8cf2da374e24975b5b96c79b3d9761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &4776763534071816909
 PrefabInstance:
   m_ObjectHideFlags: 0

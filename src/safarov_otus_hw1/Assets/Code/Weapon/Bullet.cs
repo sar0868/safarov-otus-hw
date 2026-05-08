@@ -1,4 +1,5 @@
 using System.Collections;
+using Code.Enemy;
 using UnityEngine;
 
 namespace Code.Weapon
@@ -9,7 +10,6 @@ namespace Code.Weapon
         [SerializeField] private float _speed;
         private Rigidbody _rigidbody;
         private float _lifeBullet = 1f;
-        private Collider _collider;
 
         private void Awake()
         {
@@ -20,8 +20,12 @@ namespace Code.Weapon
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+                if (collision.gameObject.TryGetComponent<EnemyBehavoir>(out EnemyBehavoir enemy))
+                {
+                    enemy.Died();
+                    Destroy(gameObject);
+                }
+
             }
         }
 
