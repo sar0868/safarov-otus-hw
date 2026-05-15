@@ -27,14 +27,15 @@ namespace Code.Character
         private void Movement()
         {
             float zInput = _inputService.move.y * _speed;
-            float xInput = _inputService.move.x * _speed;
+            // float xInput = _inputService.move.x * _speed;
 
-            // Vector3 rotation = Vector3.up * _inputService.move.x * _turn;
-            _rotation += _inputService.look * _turn;
+            _rotation += _inputService.move.x * _turn;
+            // _rotation += _inputService.look * _turn;
 
-            // Quaternion angle = Quaternion.Euler(rotation * Time.fixedDeltaTime);
             Quaternion angle = Quaternion.Euler(Vector3.up * _rotation * Time.fixedDeltaTime);
-            _rigidbody.MovePosition(transform.position + transform.forward * zInput * Time.fixedDeltaTime + transform.right * xInput * Time.fixedDeltaTime);
+            Vector3 move = transform.position
+                        + transform.forward * zInput * Time.fixedDeltaTime;
+            _rigidbody.MovePosition(move);
             _rigidbody.MoveRotation(angle);
         }
     }
