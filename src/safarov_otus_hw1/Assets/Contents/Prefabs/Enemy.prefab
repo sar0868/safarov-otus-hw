@@ -177,3 +177,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Enemy.WanderingAI
   patrolRoute: {fileID: 0}
+  _radius: 5
+  _distance: 5

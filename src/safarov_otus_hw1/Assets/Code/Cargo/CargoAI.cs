@@ -9,6 +9,7 @@ namespace Code.Cargo
         public Transform patrolRoute;
         [SerializeField] private float _radiusStop = 5f;
         [SerializeField] private float _radiusDamage = 1f;
+        [SerializeField] private string _enemyLayer = "Enemy";
         public int hp = 100;
         private List<Transform> locations;
         private int locationIndex = 0;
@@ -22,7 +23,7 @@ namespace Code.Cargo
             _agent = GetComponent<NavMeshAgent>();
             InitializePatrolEoute();
             MoveToNextPatrolLocation();
-            _enemyMask = LayerMask.GetMask("Player");
+            _enemyMask = LayerMask.GetMask(_enemyLayer);
             _isMoving = true;
         }
 
@@ -43,7 +44,7 @@ namespace Code.Cargo
             {
                 return;
             }
-            _agent.destination = locations[locationIndex].position;
+            _agent.SetDestination(locations[locationIndex].position);
             locationIndex = (locationIndex + 1) % locations.Count;
         }
 
