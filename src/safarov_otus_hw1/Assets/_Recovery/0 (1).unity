@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 801019179}
   - component: {fileID: 801019178}
   - component: {fileID: 801019183}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 897ee5d21329b81c6a7421a59a94173b, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,9 +397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Cargo.CargoAI
   patrolRoute: {fileID: 1955439881}
-  _radiusStop: 5
-  _radiusDamage: 2
-  hp: 1000
 --- !u!1 &860434144
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +567,7 @@ GameObject:
   - component: {fileID: 1435552386}
   - component: {fileID: 1435552385}
   - component: {fileID: 1435552388}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -784,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1717093071}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Look
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1041,7 @@ GameObject:
   - component: {fileID: 2080513831}
   - component: {fileID: 2080513832}
   - component: {fileID: 2080513830}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
