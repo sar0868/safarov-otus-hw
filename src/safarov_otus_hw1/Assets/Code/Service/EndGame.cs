@@ -8,8 +8,8 @@ public class EndGame : MonoBehaviour
     {
         if (other.CompareTag("Cargo"))
         {
-            CargoAI cargoAI = other.GetComponent<CargoAI>();
-            cargoAI.Stop();
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

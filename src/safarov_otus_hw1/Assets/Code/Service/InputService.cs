@@ -7,6 +7,7 @@ namespace Code.Service
     public class InputService : MonoBehaviour
     {
         public UnityEvent attackEvent = new();
+        public UnityEvent pauseEvent = new();
         public Vector2 move;
         public Vector2 look;
 
@@ -23,6 +24,11 @@ namespace Code.Service
         private void OnAttack(InputValue value)
         {
             attackEvent?.Invoke();
+        }
+
+        private void OnPause(InputValue value)
+        {
+            pauseEvent?.Invoke();
         }
     }
 }
