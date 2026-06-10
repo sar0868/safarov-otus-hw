@@ -64,15 +64,6 @@ namespace Code.Enemy
             RaycastHit hit;
             if (Physics.SphereCast(ray, _radius, out hit, _distance, _cargo))
             {
-                if (hit.distance <= 1f)
-                {
-                    _agent.isStopped = true;
-                    return;
-                }
-                // else
-                // {
-                //     _agent.isStopped = !_agent.isStopped;
-                // }
                 _findTarger = true;
                 Vector3 target = hit.transform.position;
                 _agent.SetDestination(target);
@@ -82,10 +73,6 @@ namespace Code.Enemy
                 _findTarger = false;
                 _agent.isStopped = false;
             }
-            // Оптимизация для движущейся цели: При преследовании постоянно вызывать 
-            // SetDestination в Update может быть затратно для процессора. Лучше вызывать 
-            // этот метод через корутину или обновлять его только тогда, когда цель 
-            // сдвинулась на определенное расстояние.
 
         }
 

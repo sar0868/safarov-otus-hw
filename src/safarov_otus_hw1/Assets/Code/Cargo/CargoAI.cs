@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -79,6 +80,11 @@ namespace Code.Cargo
         private void StopCargo()
         {
             _agent.isStopped = !_isMoving;
+        }
+
+        public void Stop()
+        {
+            _agent.isStopped = true;
         }
     }
 

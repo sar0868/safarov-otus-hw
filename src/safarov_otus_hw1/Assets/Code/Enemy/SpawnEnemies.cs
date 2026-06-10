@@ -1,16 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemies : MonoBehaviour
+namespace Code.Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public sealed class SpawnEnemies : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Enemy _enemyPrefab;
+        private Vector3 _positionSpawn;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SpawnEnemy(Transform point, int count, Transform patrolRoute)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                _positionSpawn = point.position;
+                _positionSpawn = new Vector3(
+                    _positionSpawn.x + Random.Range(0f, 3f),
+                    _positionSpawn.y,
+                    _positionSpawn.z + Random.Range(0f, 3f)
+                );
+                Enemy enemy = Instantiate(_enemyPrefab,
+                _positionSpawn,
+                Quaternion.identity);
+                enemy.Init(patrolRoute);
+            }
+        }
+
     }
 }
+
+
