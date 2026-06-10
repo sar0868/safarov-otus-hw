@@ -106,3 +106,6 @@ src/safarov_otus_hw1/.vscode
 src/safarov_otus_hw1/.idea
 
 src/safarov_otus_hw1/Assets/Code/Weapon/.idea
+src/safarov_otus_hw1/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+src/safarov_otus_hw1/.github/copilot-instructions.md
+src/safarov_otus_hw1/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
