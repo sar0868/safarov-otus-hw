@@ -35,9 +35,11 @@ namespace Code.Enemy
                 {
                     MoveToNextPatrolLocation();
                 }
+                else
+                {
+                    TargetCargo();
+                }
             }
-            TargetCargo();
-
         }
 
         private void MoveToNextPatrolLocation()

@@ -21,18 +21,6 @@ namespace Code.Character
             _enemyMask = LayerMask.GetMask(_enemyLayer);
         }
 
-        private void OnGUI()
-        {
-            int size = 36;
-            float posX = _camera.pixelWidth / 2 - size / 4;
-            float posY = _camera.pixelHeight / 2 - size / 2;
-            GUI.contentColor = Color.black;
-            GUI.Label(new Rect(posX, posY, size, size), "x");
-
-            GUI.color = Color.white;
-        }
-
-        [ContextMenu("Fire")]
         private void OnAttack()
         {
             CountBullets--;

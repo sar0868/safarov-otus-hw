@@ -10,7 +10,7 @@ namespace Code.Cargo
         [SerializeField] private float _radiusStop = 5f;
         [SerializeField] private float _radiusDamage = 1f;
         [SerializeField] private string _enemyLayer = "Enemy";
-        public int hp = 100;
+        private CargoBahavior _cargo;
         private List<Transform> locations;
         private int locationIndex = 0;
         private NavMeshAgent _agent;
@@ -21,6 +21,7 @@ namespace Code.Cargo
         private void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
+            _cargo = GetComponent<CargoBahavior>();
             InitializePatrolEoute();
             MoveToNextPatrolLocation();
             _enemyMask = LayerMask.GetMask(_enemyLayer);
@@ -73,7 +74,7 @@ namespace Code.Cargo
 
         private void GetDamage(int ememies)
         {
-            hp -= ememies;
+            _cargo.TakeDamage(ememies);
         }
 
         private void StopCargo()

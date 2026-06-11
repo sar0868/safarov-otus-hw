@@ -1,4 +1,3 @@
-using Code.Cargo;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +8,7 @@ public class EndGame : MonoBehaviour
         if (other.CompareTag("Cargo"))
         {
             Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("MainMenu");
         }
     }

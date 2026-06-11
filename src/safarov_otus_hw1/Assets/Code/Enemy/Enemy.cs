@@ -16,6 +16,8 @@ namespace Code.Enemy
             _wanderingAI.patrolRoute = patrolRoute;
         }
 
+
+
         public void ReactToHit()
         {
             Destroy(gameObject);

@@ -57,6 +57,7 @@ namespace Code.UI_Service
         private void MainMenuBack()
         {
             Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("MainMenu");
         }
 
