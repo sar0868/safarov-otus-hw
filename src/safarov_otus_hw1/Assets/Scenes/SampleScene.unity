@@ -1824,6 +1824,7 @@ MonoBehaviour:
   _hp: {fileID: 656102825}
   _charges: {fileID: 817120503}
   _cargo: {fileID: 801019185}
+  _character: {fileID: 2080513833}
 --- !u!1 &580011416
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,7 +8698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _inputService: {fileID: 1647756748}
   _camera: {fileID: 1435552386}
-  _countBullets: 20
+  _countCharges: 30
   _distanceAttack: 10
   _enemyLayer: Enemy
 --- !u!43 &2115959153

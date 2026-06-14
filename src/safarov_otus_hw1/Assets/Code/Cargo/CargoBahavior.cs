@@ -6,21 +6,29 @@ namespace Code.Cargo
     public sealed class CargoBahavior : MonoBehaviour
     {
         public event Action<int> OnChangedHp;
-        [SerializeField] private int _hp = 100;
+        [SerializeField] private int _hp = 1000;
 
-        private void Awake()
+        public int Hp
         {
-            OnChangedHp?.Invoke(_hp);
+            get => _hp;
+            set
+            {
+                _hp = value;
+                OnChangedHp?.Invoke(_hp);
+            }
+        }
+
+        private void Start()
+        {
+            Hp = _hp;
         }
 
         public void TakeDamage(int damage)
         {
-            _hp -= damage;
-            _hp = _hp >= 0 ? 0 : _hp;
+            Hp -= damage;
+            Hp = Hp >= 0 ? Hp : 0;
 
-            OnChangedHp?.Invoke(_hp);
-
-            if (_hp == 0)
+            if (Hp == 0)
             {
                 Die();
             }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,8 +36,6 @@ namespace Code.Cargo
                 MoveToNextPatrolLocation();
             }
             TargetEnemy();
-            DetectDamage();
-            StopCargo();
         }
 
         private void MoveToNextPatrolLocation()
@@ -62,19 +61,22 @@ namespace Code.Cargo
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, _radiusStop, _enemyMask);
             _isMoving = hits.Length == 0;
+            StopCargo();
+            DetectDamage();
         }
 
         private void DetectDamage()
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, _radiusDamage, _enemyMask);
-
-            GetDamage(hits.Length);
+            StartCoroutine(GetDamage(hits.Length));
 
         }
 
-        private void GetDamage(int ememies)
+        private IEnumerator GetDamage(int ememies)
         {
+            yield return new WaitForSeconds(2f);
             _cargo.TakeDamage(ememies);
+
         }
 
         private void StopCargo()

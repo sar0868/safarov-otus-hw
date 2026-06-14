@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using Code.Enemy;
+using Code.Enemies;
 using UnityEngine;
 
 namespace Code.Service
@@ -26,7 +25,7 @@ namespace Code.Service
 
         public void DestroyEnemy()
         {
-            Enemy.Enemy[] enemies = FindObjectsByType<Enemy.Enemy>(FindObjectsSortMode.None);
+            Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i].ReactToHit();

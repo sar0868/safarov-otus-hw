@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Enemy
+namespace Code.Enemies
 {
     public sealed class Enemy : MonoBehaviour
     {
@@ -15,8 +15,6 @@ namespace Code.Enemy
         {
             _wanderingAI.patrolRoute = patrolRoute;
         }
-
-
 
         public void ReactToHit()
         {

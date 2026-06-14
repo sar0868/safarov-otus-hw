@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using Mono.Cecil;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Code.Enemy
+namespace Code.Enemies
 {
     public class WanderingAI : MonoBehaviour
     {
@@ -48,7 +47,7 @@ namespace Code.Enemy
             {
                 return;
             }
-            _agent.SetDestination(locations[locationIndex].position);
+            _agent.destination = locations[locationIndex].position;
             locationIndex = (locationIndex + 1) % locations.Count;
         }
 
@@ -68,16 +67,15 @@ namespace Code.Enemy
             {
                 _findTarger = true;
                 Vector3 target = hit.transform.position;
-                _agent.SetDestination(target);
+                _agent.destination = target;
+                // _agent.SetDestination(target);
             }
             else
             {
                 _findTarger = false;
                 _agent.isStopped = false;
             }
-
         }
-
     }
 
 }

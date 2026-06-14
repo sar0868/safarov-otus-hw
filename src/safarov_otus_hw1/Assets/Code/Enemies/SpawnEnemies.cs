@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Enemy
+namespace Code.Enemies
 {
     public sealed class SpawnEnemies : MonoBehaviour
     {
