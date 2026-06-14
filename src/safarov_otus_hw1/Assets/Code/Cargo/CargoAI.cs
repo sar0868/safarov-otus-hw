@@ -68,8 +68,10 @@ namespace Code.Cargo
         private void DetectDamage()
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, _radiusDamage, _enemyMask);
-            StartCoroutine(GetDamage(hits.Length));
-
+            if (hits.Length != 0)
+            {
+                StartCoroutine(GetDamage(hits.Length));
+            }
         }
 
         private IEnumerator GetDamage(int ememies)
