@@ -44,12 +44,10 @@ namespace Code.Character
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, _distanceAttack, _enemyMask))
                 {
-                    Debug.LogError($"hit11");
                     GameObject hitObject = hit.transform.gameObject;
                     Enemy target = hitObject.GetComponent<Enemy>();
                     if (target != null)
                     {
-                        Debug.LogError($"hit");
                         target.ReactToHit();
                     }
                 }

@@ -3232,7 +3232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d64a76699ad6c39f8baf61b497eb188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Cargo.CargoBahavior
-  _hp: 500
+  _hp: 100
 --- !u!1 &815372974
 GameObject:
   m_ObjectHideFlags: 0
