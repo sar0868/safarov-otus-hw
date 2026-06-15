@@ -5,7 +5,7 @@ namespace Code.Service
 {
     public sealed class WinLossSystem : MonoBehaviour
     {
-        public static WinLossSystem Instance;
+        // public static WinLossSystem Instance;
         [SerializeField] private WinWindow _winWindow;
         [SerializeField] private LossWindow _lossWindow;
 

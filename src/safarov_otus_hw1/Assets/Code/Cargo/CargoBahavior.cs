@@ -6,6 +6,7 @@ namespace Code.Cargo
     public sealed class CargoBahavior : MonoBehaviour
     {
         public event Action<int> OnChangedHp;
+        public event Action<bool> OnIsDead;
         [SerializeField] private int _hp = 1000;
 
         public int Hp
@@ -21,6 +22,7 @@ namespace Code.Cargo
         private void Start()
         {
             Hp = _hp;
+            OnIsDead?.Invoke(false);
         }
 
         public void TakeDamage(int damage)
@@ -36,7 +38,7 @@ namespace Code.Cargo
 
         private void Die()
         {
-            Debug.LogError($"destroyed"); ;
+            OnIsDead?.Invoke(true);
         }
     }
 }

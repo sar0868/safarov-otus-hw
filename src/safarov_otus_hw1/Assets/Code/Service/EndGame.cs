@@ -1,15 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
+    public event Action OnIsWin;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cargo"))
         {
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("MainMenu");
+            OnIsWin?.Invoke();
         }
     }
 }
