@@ -83,6 +83,7 @@ namespace Code
                     Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
                     if (enemy != null)
                     {
+                        Debug.LogError($"Hit");
                         enemy.ReactToHit(_damage);
                     }
                 }

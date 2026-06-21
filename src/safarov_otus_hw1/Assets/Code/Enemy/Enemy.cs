@@ -13,11 +13,13 @@ namespace Code
 
         public List<Transform> locations;
 
-        // private Animator _animator;
+        private Animator _animator;
         private int _locationIndex = 0;
         private NavMeshAgent _agent;
-        private int _hp = 3;
+        [SerializeField] private int _hp = 3;
         private Renderer _renderer;
+        private string death = "Death";
+        private string walk = "Walk";
 
         public int Hp { get => _hp; set => _hp = value; }
 
@@ -26,7 +28,7 @@ namespace Code
             InitializePatrolRoute();
             _agent = GetComponent<NavMeshAgent>();
             _renderer = GetComponent<Renderer>();
-            // _animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
             MoveToNextPatrolLocation();
         }
 
@@ -46,7 +48,7 @@ namespace Code
             }
             _agent.destination = locations[_locationIndex].position;
             _locationIndex = (_locationIndex + 1) % locations.Count;
-            // _animator.SetTrigger("Walk");
+            _animator.SetTrigger(walk);
         }
 
         private void InitializePatrolRoute()
@@ -69,7 +71,6 @@ namespace Code
             if (_hp <= 0)
             {
                 StartCoroutine(Die());
-
             }
         }
 
@@ -77,9 +78,10 @@ namespace Code
         {
             _conditions.KilledEnemy();
             _agent.isStopped = true;
-            _renderer.material.color = Color.green;
+            _animator.SetTrigger(death);
+            // _renderer.material.color = Color.green;
             yield return new WaitForSeconds(1f);
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
             // Destroy(gameObject);
         }
     }
