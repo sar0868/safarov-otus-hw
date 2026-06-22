@@ -2321,6 +2321,7 @@ MonoBehaviour:
   _patrolRoute: {fileID: 0}
   _conditions: {fileID: 0}
   locations: []
+  _hp: 3
 --- !u!4 &667407699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228488591984808873, guid: 2ec728f47514da607bb107b02e31e470, type: 3}
@@ -5537,6 +5538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276830531f12140d2ae55a0c21cf85fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Conditions
+  _playerMovement: {fileID: 1419011341}
+  _winLoseService: {fileID: 1602423269}
 --- !u!1 &1606438218
 GameObject:
   m_ObjectHideFlags: 0

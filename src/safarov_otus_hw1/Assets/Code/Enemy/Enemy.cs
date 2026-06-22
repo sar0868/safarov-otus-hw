@@ -17,7 +17,7 @@ namespace Code
         private int _locationIndex = 0;
         private NavMeshAgent _agent;
         [SerializeField] private int _hp = 3;
-        private Renderer _renderer;
+        // private Renderer _renderer;
         private string death = "Death";
         private string walk = "Walk";
 
@@ -27,7 +27,7 @@ namespace Code
         {
             InitializePatrolRoute();
             _agent = GetComponent<NavMeshAgent>();
-            _renderer = GetComponent<Renderer>();
+            // _renderer = GetComponent<Renderer>();
             _animator = GetComponent<Animator>();
             MoveToNextPatrolLocation();
         }

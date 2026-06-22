@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code
@@ -5,6 +6,7 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
+        public event Action FallDath;
         [SerializeField] private NewInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
@@ -12,7 +14,7 @@ namespace Code
         private CharacterController _characterController;
         private float _gravity = -9.81f;
         private float _rotationY = 0f;
-        private bool _isGrounded;
+        private float _fallDeath = -10f;
 
         private void Start()
         {
@@ -26,6 +28,15 @@ namespace Code
         {
             Look();
             Move();
+            IsFall();
+        }
+
+        private void IsFall()
+        {
+            if (transform.position.y <= _fallDeath)
+            {
+                FallDath?.Invoke();
+            }
         }
 
         private void OnJump()

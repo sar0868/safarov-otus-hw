@@ -4,18 +4,29 @@ namespace Code
 {
     public class Conditions : MonoBehaviour
     {
-        private WinLoseService _winLoseService;
+        [SerializeField] private PlayerMovement _playerMovement;
+        [SerializeField] private WinLoseService _winLoseService;
         private int _killedEnemies = 0;
-        private int _winCondition = 2;
+        private int _winCondition = 1;
         private int _countCoins = 0;
 
 
         public int CountCoins { get => _countCoins; }
         public int CountKilledEnemies { get => _killedEnemies; }
 
-        private void Awake()
+        // private void Awake()
+        // {
+        //     _winLoseService = GetComponent<WinLoseService>();
+        // }
+
+        private void OnEnable()
         {
-            _winLoseService = GetComponent<WinLoseService>();
+            _playerMovement.FallDath += IsLoss;
+        }
+
+        private void OnDisable()
+        {
+            _playerMovement.FallDath -= IsLoss;
         }
 
         private bool IsWin()
@@ -39,6 +50,11 @@ namespace Code
         public void AddCoun()
         {
             _countCoins++;
+        }
+
+        public void IsLoss()
+        {
+            _winLoseService.ShowLoseWindow();
         }
 
         public void KillNPC()
