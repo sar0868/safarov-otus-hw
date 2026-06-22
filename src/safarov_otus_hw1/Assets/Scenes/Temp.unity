@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   _player: {fileID: 1419011344}
-  _detectionRadus: 5
+  _detectionRadus: 10
   _attackRadus: 1
   _damage: 1
 --- !u!1 &777439655
