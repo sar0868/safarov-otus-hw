@@ -21,8 +21,9 @@ namespace Code
         private int _locationIndex = 0;
         private NavMeshAgent _agent;
         private Vector3 _cashTarget;
-        private string death = "Death";
-        private string walk = "Walk";
+        private string _death = "Death";
+        private string _walk = "Walk";
+        private string _attackAnimation = "Attack";
         private bool _isDetected = false;
         private int _layerMaskPlayer;
         private string _playerLayer = "Player";
@@ -73,10 +74,12 @@ namespace Code
                 {
                     _enemyAttack.AttackPlayer();
                     _agent.isStopped = true;
+                    _animator.SetBool(_attackAnimation, true);
                 }
                 else
                 {
                     _agent.isStopped = false;
+                    _animator.SetBool(_attackAnimation, false);
                 }
             }
             else
@@ -100,7 +103,7 @@ namespace Code
             _cashTarget = locations[_locationIndex].position;
             _agent.destination = _cashTarget;
             _locationIndex = (_locationIndex + 1) % locations.Count;
-            _animator.SetTrigger(walk);
+            _animator.SetTrigger(_walk);
         }
 
         private void InitializePatrolRoute()
@@ -130,7 +133,7 @@ namespace Code
         {
             _conditions.KilledEnemy();
             _agent.isStopped = true;
-            _animator.SetTrigger(death);
+            _animator.SetTrigger(_death);
             yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
             // Destroy(gameObject);

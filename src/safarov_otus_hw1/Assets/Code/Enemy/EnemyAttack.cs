@@ -8,7 +8,6 @@ namespace Code
         [SerializeField] private float _detectionRadus = 10.0f;
         [SerializeField] private PlayerBehaviour _player;
 
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
