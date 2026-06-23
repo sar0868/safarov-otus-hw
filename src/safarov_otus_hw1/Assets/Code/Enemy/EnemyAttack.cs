@@ -8,6 +8,27 @@ namespace Code
         [SerializeField] private float _detectionRadus = 10.0f;
         [SerializeField] private PlayerBehaviour _player;
 
+        private EnemyAnimation _animations;
+
+        private void Awake()
+        {
+            _animations = GetComponent<EnemyAnimation>();
+        }
+        private void OnEnable()
+        {
+            _player.OnDeath += AnimationVictory;
+        }
+
+        private void AnimationVictory()
+        {
+            _animations.AnimationVictory();
+        }
+
+        void OnDisable()
+        {
+            _player.OnDeath -= AnimationVictory;
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

@@ -17,13 +17,10 @@ namespace Code
 
 
         private EnemyAttack _enemyAttack;
-        private Animator _animator;
+        private EnemyAnimation _animations;
         private int _locationIndex = 0;
         private NavMeshAgent _agent;
         private Vector3 _cashTarget;
-        private string _death = "Death";
-        private string _walk = "Walk";
-        private string _attackAnimation = "Attack";
         private bool _isDetected = false;
         private int _layerMaskPlayer;
         private string _playerLayer = "Player";
@@ -35,7 +32,7 @@ namespace Code
         {
             InitializePatrolRoute();
             _agent = GetComponent<NavMeshAgent>();
-            _animator = GetComponent<Animator>();
+            _animations = GetComponent<EnemyAnimation>();
             _layerMaskPlayer = LayerMask.GetMask(_playerLayer);
             MoveToNextPatrolLocation();
             _findPlayer = new Collider[1];
@@ -74,12 +71,12 @@ namespace Code
                 {
                     _enemyAttack.AttackPlayer();
                     _agent.isStopped = true;
-                    _animator.SetBool(_attackAnimation, true);
+                    _animations.AnimationAttack(true);
                 }
                 else
                 {
                     _agent.isStopped = false;
-                    _animator.SetBool(_attackAnimation, false);
+                    _animations.AnimationAttack(false);
                 }
             }
             else
@@ -103,7 +100,7 @@ namespace Code
             _cashTarget = locations[_locationIndex].position;
             _agent.destination = _cashTarget;
             _locationIndex = (_locationIndex + 1) % locations.Count;
-            _animator.SetTrigger(_walk);
+            _animations.AnimationWalk();
         }
 
         private void InitializePatrolRoute()
@@ -133,8 +130,8 @@ namespace Code
         {
             _conditions.KilledEnemy();
             _agent.isStopped = true;
-            _animator.SetTrigger(_death);
-            yield return new WaitForSeconds(1f);
+            _animations.AnimationDeath();
+            yield return new WaitForSeconds(3f);
             gameObject.SetActive(false);
             // Destroy(gameObject);
         }

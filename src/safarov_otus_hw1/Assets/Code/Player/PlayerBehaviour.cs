@@ -7,6 +7,7 @@ namespace Code
     {
         [SerializeField] private int _hp = 100;
         public event Action<int> OnChangeHp;
+        public event Action OnDeath;
         private int _countEnemy;
 
         public int CountEnemy { get => _countEnemy; set => _countEnemy = value; }
@@ -41,6 +42,7 @@ namespace Code
         private void PlayerDeath()
         {
             Debug.LogError($"Player death");
+            OnDeath?.Invoke();
         }
     }
 }
