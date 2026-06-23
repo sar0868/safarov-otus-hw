@@ -25,6 +25,7 @@ namespace Code
         private int _layerMaskPlayer;
         private string _playerLayer = "Player";
         private Collider[] _findPlayer;
+        private bool _isDeath = false;
 
         public int Hp { get => _hp; set => _hp = value; }
 
@@ -41,15 +42,17 @@ namespace Code
 
         private void Update()
         {
-            if (_isDetected == false)
+            if (_isDeath == false)
             {
-                if (_agent.remainingDistance < 0.2f && _agent.pathPending == false)
+                if (_isDetected == false)
                 {
-                    MoveToNextPatrolLocation();
+                    if (_agent.remainingDistance < 0.2f && _agent.pathPending == false)
+                    {
+                        MoveToNextPatrolLocation();
+                    }
                 }
+                StartCoroutine(ScanPlayer());
             }
-            StartCoroutine(ScanPlayer());
-
         }
 
         private IEnumerator ScanPlayer()
@@ -131,6 +134,7 @@ namespace Code
             _conditions.KilledEnemy();
             _agent.isStopped = true;
             _animations.AnimationDeath();
+            _isDeath = true;
             yield return new WaitForSeconds(3f);
             gameObject.SetActive(false);
             // Destroy(gameObject);

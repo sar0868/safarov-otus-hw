@@ -6,7 +6,7 @@ namespace Code
     public sealed class PlayerBehaviour : MonoBehaviour
     {
         [SerializeField] private int _hp = 100;
-        public event Action<int> OnChangeHp;
+        public static event Action<int> OnChangeHp;
         public event Action OnDeath;
         private int _countEnemy;
 
@@ -38,6 +38,7 @@ namespace Code
                 Hp -= damage;
             }
         }
+
 
         private void PlayerDeath()
         {

@@ -41,7 +41,6 @@ namespace Code
         public void AttackPlayer()
         {
             _player.GetDamage(_damage);
-            Debug.LogError($"{_player.Hp}");
         }
     }
 }

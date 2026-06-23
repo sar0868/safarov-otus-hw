@@ -6,7 +6,7 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
-        public event Action FallDath;
+        public event Action FallDeath;
         [SerializeField] private NewInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
@@ -35,7 +35,7 @@ namespace Code
         {
             if (transform.position.y <= _fallDeath)
             {
-                FallDath?.Invoke();
+                FallDeath?.Invoke();
             }
         }
 

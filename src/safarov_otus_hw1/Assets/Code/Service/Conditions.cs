@@ -21,12 +21,12 @@ namespace Code
 
         private void OnEnable()
         {
-            _playerMovement.FallDath += IsLoss;
+            _playerMovement.FallDeath += IsLoss;
         }
 
         private void OnDisable()
         {
-            _playerMovement.FallDath -= IsLoss;
+            _playerMovement.FallDeath -= IsLoss;
         }
 
         private bool IsWin()
