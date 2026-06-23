@@ -1725,10 +1725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dbf02f40da74f4a9500e0d9a207e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _player: {fileID: 1419011344}
-  _detectionRadus: 10
-  _attackRadus: 1
   _damage: 1
+  _detectionRadus: 10
+  _player: {fileID: 1419011344}
 --- !u!1 &777439655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,6 +3135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7c1ad683b174ac7a98dc19e3b894c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _hp: 100
 --- !u!136 &1419011345
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7125,6 +7125,14 @@ PrefabInstance:
       propertyPath: _patrolRoute
       value: 
       objectReference: {fileID: 1939996369}
+    - target: {fileID: 8766575482960261051, guid: 9015b94eca224479580800b40703fb90, type: 3}
+      propertyPath: _attackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766575482960261051, guid: 9015b94eca224479580800b40703fb90, type: 3}
+      propertyPath: _detectionRadus
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
