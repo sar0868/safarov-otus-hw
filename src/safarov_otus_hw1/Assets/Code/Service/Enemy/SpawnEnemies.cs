@@ -31,8 +31,7 @@ namespace Code
                     _positionSpawn.z + Random.Range(0f, 3f)
                 );
                 Enemy enemy = Instantiate(_enemyPrefab, _positionSpawn, Quaternion.identity);
-                PlayerBehaviour playerBehaviour = _player.playerBehaviour;
-                enemy.Init(patrolRoute, _conditions, playerBehaviour);
+                enemy.Init(patrolRoute, _conditions, _player.PlayerBehaviour);
             }
         }
 
