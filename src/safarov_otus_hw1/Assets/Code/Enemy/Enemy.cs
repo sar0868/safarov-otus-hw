@@ -9,7 +9,7 @@ namespace Code
     {
         public List<Transform> locations;
 
-        [SerializeField] private Transform _patrolRoute;
+        [SerializeField] private PatrolRoute _patrolRoute;
         [SerializeField] private Conditions _conditions;
         [SerializeField] private float _detectionRadus = 10.0f;
         [SerializeField] private float _attackDistance = 5.0f;
@@ -108,7 +108,7 @@ namespace Code
 
         private void InitializePatrolRoute()
         {
-            foreach (Transform item in _patrolRoute)
+            foreach (Transform item in _patrolRoute.transform)
             {
                 locations.Add(item);
             }
