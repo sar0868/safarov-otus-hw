@@ -141,11 +141,11 @@ namespace Code
             _agent.isStopped = agentState;
         }
 
-        public void Init(PatrolRoute patrolRoute, Conditions conditions, PlayerBehaviour player)
+        public void Init(PatrolRoute patrolRoute, Conditions conditions)
         {
             _patrolRoute = patrolRoute;
             _conditions = conditions;
-            _enemyAttack.Player = player;
+            // _enemyAttack.AddPlayerBehaviour(player);
         }
     }
 }

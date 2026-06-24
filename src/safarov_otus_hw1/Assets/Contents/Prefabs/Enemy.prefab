@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Code.EnemyAttack
   _damage: 1
   _detectionRadus: 10
+  _animations: {fileID: 7295870644332056189}
 --- !u!114 &7295870644332056189
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1748,7 +1748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _enemyPrefab: {fileID: 8766575482960261051, guid: 9015b94eca224479580800b40703fb90, type: 3}
-  _player: {fileID: 1419011346}
   _conditions: {fileID: 777439656}
 --- !u!4 &734784681
 Transform:
@@ -2388,7 +2387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064909816}
   - component: {fileID: 1064909815}
-  - component: {fileID: 1064909814}
+  - component: {fileID: 1064909817}
   m_Layer: 0
   m_Name: TargetSpawn
   m_TagString: SpawnEnemy
@@ -2396,21 +2395,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1064909814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064909813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a355b5d8bdbe9fda7a19cb332ad56b6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  positionSpawnEnemy: {fileID: 52173371}
-  count: 2
-  patrolRoute: {fileID: 1939996370}
 --- !u!65 &1064909815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2447,6 +2431,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 734784681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064909817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064909813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9411d10881e39f31f8ffeaafb3e1f7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.StartSpawn
+  _positionSpawnEnemy: {fileID: 52173371}
+  _countEnemy: 2
+  _patrolRoute: {fileID: 1939996370}
+  _spawnEnemies: {fileID: 734784680}
 --- !u!1 &1081643713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3142,6 @@ GameObject:
   - component: {fileID: 1419011340}
   - component: {fileID: 1419011342}
   - component: {fileID: 1419011346}
-  - component: {fileID: 1419011347}
   - component: {fileID: 1419011341}
   - component: {fileID: 1419011343}
   - component: {fileID: 1419011344}
@@ -3282,19 +3281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerBehaviour: {fileID: 1419011344}
-  startSpawn: {fileID: 1419011347}
---- !u!114 &1419011347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419011339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9411d10881e39f31f8ffeaafb3e1f7f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.StartSpawn
+  startSpawn: {fileID: 0}
 --- !u!1 &1450969225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6475,7 +6462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.8235294}
+  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

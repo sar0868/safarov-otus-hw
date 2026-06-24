@@ -8,17 +8,17 @@ namespace Code
         [SerializeField] private float _detectionRadus = 10.0f;
         private PlayerBehaviour _player;
 
-        private EnemyAnimation _animations;
+        [SerializeField] private EnemyAnimation _animations;
 
-        public PlayerBehaviour Player { get => _player; set => _player = value; }
 
         private void Awake()
         {
             _animations = GetComponent<EnemyAnimation>();
+            _player = FindFirstObjectByType<PlayerBehaviour>();
         }
         private void OnEnable()
         {
-            Player.OnDeath += AnimationVictory;
+            _player.OnDeath += AnimationVictory;
         }
 
         private void AnimationVictory()
@@ -28,7 +28,7 @@ namespace Code
 
         void OnDisable()
         {
-            Player.OnDeath -= AnimationVictory;
+            _player.OnDeath -= AnimationVictory;
         }
 
         private void OnDrawGizmos()
@@ -42,7 +42,12 @@ namespace Code
 
         public void AttackPlayer()
         {
-            Player.GetDamage(_damage);
+            _player.GetDamage(_damage);
         }
+
+        // public void AddPlayerBehaviour(PlayerBehaviour playerBehaviour)
+        // {
+        //     _player = playerBehaviour;
+        // }
     }
 }
