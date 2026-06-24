@@ -9,15 +9,14 @@ namespace Code
     {
         public List<Transform> locations;
 
-        [SerializeField] private PatrolRoute _patrolRoute;
-        [SerializeField] private Conditions _conditions;
         [SerializeField] private float _detectionRadus = 10.0f;
         [SerializeField] private float _attackDistance = 5.0f;
         [SerializeField] private int _hp = 3;
 
-
+        private Conditions _conditions;
         private EnemyAttack _enemyAttack;
         private EnemyAnimation _animations;
+        private PatrolRoute _patrolRoute;
         private int _locationIndex = 0;
         private NavMeshAgent _agent;
         private Vector3 _cashTarget;
@@ -27,17 +26,16 @@ namespace Code
         private Collider[] _findPlayer;
         private bool _isDeath = false;
 
-        public int Hp { get => _hp; set => _hp = value; }
 
         private void Start()
         {
-            InitializePatrolRoute();
             _agent = GetComponent<NavMeshAgent>();
             _animations = GetComponent<EnemyAnimation>();
-            _layerMaskPlayer = LayerMask.GetMask(_playerLayer);
-            MoveToNextPatrolLocation();
-            _findPlayer = new Collider[1];
             _enemyAttack = GetComponent<EnemyAttack>();
+            _layerMaskPlayer = LayerMask.GetMask(_playerLayer);
+            _findPlayer = new Collider[1];
+            InitializePatrolRoute();
+            MoveToNextPatrolLocation();
         }
 
         private void Update()
@@ -73,12 +71,12 @@ namespace Code
                 if (distance <= _attackDistance)
                 {
                     _enemyAttack.AttackPlayer();
-                    _agent.isStopped = true;
+                    AgentState(true);
                     _animations.AnimationAttack(true);
                 }
                 else
                 {
-                    _agent.isStopped = false;
+                    AgentState(false);
                     _animations.AnimationAttack(false);
                 }
             }
@@ -116,7 +114,6 @@ namespace Code
 
         public void ReactToHit(int damage)
         {
-
             Damage(damage);
         }
 
@@ -132,14 +129,23 @@ namespace Code
         private IEnumerator Die()
         {
             _conditions.KilledEnemy();
-            _agent.isStopped = true;
+            AgentState(true);
             _animations.AnimationDeath();
             _isDeath = true;
             yield return new WaitForSeconds(3f);
             gameObject.SetActive(false);
             // Destroy(gameObject);
         }
+        private void AgentState(bool agentState)
+        {
+            _agent.isStopped = agentState;
+        }
 
-
+        public void Init(PatrolRoute patrolRoute, Conditions conditions, PlayerBehaviour player)
+        {
+            _patrolRoute = patrolRoute;
+            _conditions = conditions;
+            _enemyAttack.Player = player;
+        }
     }
 }

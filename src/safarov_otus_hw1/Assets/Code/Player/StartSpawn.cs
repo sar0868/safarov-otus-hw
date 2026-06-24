@@ -5,10 +5,10 @@ namespace Code
 {
     public sealed class StartSpawn : MonoBehaviour
     {
-        public event Action<Transform, int> OnEnterTag;
+        public event Action<Transform, int, PatrolRoute> OnEnterTag;
         private Collider _collider;
         private string _tagSpawnEnemy = "SpawnEnemy";
-        // private bool _isEnter = false;
+        private bool _isEnter = false;
 
         private void Start()
         {
@@ -17,14 +17,16 @@ namespace Code
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(_tagSpawnEnemy))
+            if (_isEnter == false && other.CompareTag(_tagSpawnEnemy))
             {
-                // GameObject pointSpawn = other.transform.gameObject;
-                // SpawnParameters parameters = pointSpawn.GetComponent<SpawnParameters>();
-                // Params @params = parameters.GetParams();
+                _isEnter = true;
+                GameObject pointSpawn = other.transform.gameObject;
+                SpawnParameters parameters = pointSpawn.GetComponent<SpawnParameters>();
+                Transform position = parameters.positionSpawnEnemy;
+                int count = parameters.count;
+                PatrolRoute patrolRoute = parameters.patrolRoute;
 
-                // // int count = other.transform.gameObject.GetComponent
-                // OnEnterTag?.Invoke(@params.positionSpawnEnemy, @params.count);
+                OnEnterTag?.Invoke(position, count, patrolRoute);
             }
         }
     }

@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
       propertyPath: m_Name
-      value: Enemy_game
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
       propertyPath: m_Layer
@@ -229,10 +229,19 @@ PrefabInstance:
       addedObject: {fileID: 8766575482960261051}
     - targetCorrespondingSourceObject: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2869186625053688711}
+    - targetCorrespondingSourceObject: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7104633388667636555}
+    - targetCorrespondingSourceObject: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7295870644332056189}
     - targetCorrespondingSourceObject: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 295785018549772269}
+    - targetCorrespondingSourceObject: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7751096885035361718}
   m_SourcePrefab: {fileID: 100100000, guid: 272ec112bddec644a8af6599107e74f7, type: 3}
 --- !u!1 &870948358263922076 stripped
 GameObject:
@@ -252,11 +261,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Enemy
   locations: []
-  _patrolRoute: {fileID: 0}
-  _conditions: {fileID: 0}
   _detectionRadus: 10
   _attackDistance: 5
   _hp: 3
+--- !u!114 &2869186625053688711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870948358263922076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb2e28ab6208155588fbe457a3d78bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBehaviour
+--- !u!114 &7104633388667636555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870948358263922076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dbf02f40da74f4a9500e0d9a207e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Code.EnemyAttack
+  _damage: 1
+  _detectionRadus: 10
+  _player: {fileID: 0}
 --- !u!114 &7295870644332056189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +325,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &7751096885035361718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870948358263922076}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.56228304
+  m_Height: 1.9876332
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9466536, z: 0.07118082}
