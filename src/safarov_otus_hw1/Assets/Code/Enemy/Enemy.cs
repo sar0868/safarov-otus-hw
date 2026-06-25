@@ -147,5 +147,11 @@ namespace Code
             _conditions = conditions;
             // _enemyAttack.AddPlayerBehaviour(player);
         }
+
+        public void DeactivateEnemy()
+        {
+            Destroy(gameObject);
+            // gameObject.SetActive(false);
+        }
     }
 }

@@ -6,8 +6,9 @@ namespace Code
     {
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private WinLoseService _winLoseService;
+
         private int _killedEnemies = 0;
-        private int _winCondition = 1;
+        // private int _winCondition = 2;
         private int _countCoins = 0;
 
 
@@ -22,29 +23,24 @@ namespace Code
         private void OnEnable()
         {
             _playerMovement.FallDeath += IsLoss;
+            EndGame.OnEnd += IsWin;
         }
 
         private void OnDisable()
         {
             _playerMovement.FallDeath -= IsLoss;
+            EndGame.OnEnd -= IsWin;
         }
 
-        private bool IsWin()
+        private void IsWin()
         {
-            if (CountKilledEnemies >= _winCondition)
-            {
-                return true;
-            }
-            return false;
+            _winLoseService.ShowWinWindow();
         }
 
         public void KilledEnemy()
         {
             _killedEnemies++;
-            if (IsWin())
-            {
-                _winLoseService.ShowWinWindow();
-            }
+
         }
 
         public void AddCoun()

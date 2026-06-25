@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code
@@ -9,8 +10,9 @@ namespace Code
         private Vector3 _positionSpawn;
 
 
-        public void Spawn(Transform point, int countEnemy, PatrolRoute patrolRoute)
+        public void Spawn(Transform point, int countEnemy, PatrolRoute patrolRoute, out List<Enemy> enemies)
         {
+            enemies = new();
             for (int i = 0; i < countEnemy; i++)
             {
                 _positionSpawn = point.position;
@@ -21,9 +23,9 @@ namespace Code
                 );
                 Enemy enemy = Instantiate(_enemyPrefab, _positionSpawn, Quaternion.identity);
                 enemy.Init(patrolRoute, _conditions);
+                enemies.Add(enemy);
             }
         }
-
     }
 }
 
