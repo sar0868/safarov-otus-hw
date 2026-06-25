@@ -9,16 +9,11 @@ namespace Code
 
         private int _killedEnemies = 0;
         // private int _winCondition = 2;
-        private int _countCoins = 0;
+        private static int _countCoins = 0;
 
 
         public int CountCoins { get => _countCoins; }
         public int CountKilledEnemies { get => _killedEnemies; }
-
-        // private void Awake()
-        // {
-        //     _winLoseService = GetComponent<WinLoseService>();
-        // }
 
         private void OnEnable()
         {
@@ -43,7 +38,7 @@ namespace Code
 
         }
 
-        public void AddCoun()
+        public static void AddCoun()
         {
             _countCoins++;
         }

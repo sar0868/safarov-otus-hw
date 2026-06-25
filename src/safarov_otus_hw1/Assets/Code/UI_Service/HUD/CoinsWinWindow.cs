@@ -25,6 +25,7 @@ namespace Code
             _sequence = null;
             _sequence = DOTween.Sequence();
             _sequence
+            .SetUpdate(UpdateType.Normal, true)
             .Append(transform.DOMoveY(_targetY, _fallDuration))
             .SetEase(Ease.InQuad)
             .AppendInterval(0.5f)

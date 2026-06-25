@@ -134,8 +134,8 @@ namespace Code
             _isDeath = true;
             yield return new WaitForSeconds(3f);
             gameObject.SetActive(false);
-            // Destroy(gameObject);
         }
+
         private void AgentState(bool agentState)
         {
             _agent.isStopped = agentState;
@@ -145,13 +145,11 @@ namespace Code
         {
             _patrolRoute = patrolRoute;
             _conditions = conditions;
-            // _enemyAttack.AddPlayerBehaviour(player);
         }
 
         public void DeactivateEnemy()
         {
             Destroy(gameObject);
-            // gameObject.SetActive(false);
         }
     }
 }

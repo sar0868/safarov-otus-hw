@@ -31,14 +31,16 @@ namespace Code
 
         public void Show()
         {
+            Time.timeScale = 0;
             gameObject.SetActive(true);
+
             Cursor.lockState = CursorLockMode.Confined;
             AudioListener.pause = true;
             _playerInput.SwitchCurrentActionMap("UI");
 
             _sequence?.Kill();
             _sequence = null;
-            _sequence = DOTween.Sequence();
+            _sequence = DOTween.Sequence().SetUpdate(UpdateType.Normal, true);
             _sequence.Append(_background.DOFade(1f, 2f))
             .AppendInterval(1f)
             .Join(_textWin.DOFade(1f, 0.5f))
@@ -72,7 +74,7 @@ namespace Code
         {
             _sequence?.Kill();
             _sequence = null;
-            _sequence = DOTween.Sequence();
+            _sequence = DOTween.Sequence().SetUpdate(UpdateType.Normal, true);
             _sequence.SetLink(gameObject)
             .OnComplete(() => ExitGame());
         }

@@ -5,12 +5,12 @@ namespace Code
 {
     public sealed class PlayerBehaviour : MonoBehaviour
     {
-        [SerializeField] private int _hp = 100;
-        public static event Action<int> OnChangeHp;
         public event Action OnDeath;
-        private int _countEnemy;
+        public static event Action<int> OnChangeHp;
 
-        public int CountEnemy { get => _countEnemy; set => _countEnemy = value; }
+        [SerializeField] private int _hp = 100;
+        private int _maxHP;
+
         public int Hp
         {
             get => _hp;
@@ -24,6 +24,7 @@ namespace Code
         private void Awake()
         {
             Hp = _hp;
+            _maxHP = _hp;
         }
 
         public void GetDamage(int damage)
@@ -44,6 +45,12 @@ namespace Code
         {
             Debug.LogError($"Player death");
             OnDeath?.Invoke();
+        }
+
+        public void AddHp(int health)
+        {
+            int buff = _hp + health;
+            Hp = buff >= _maxHP ? _maxHP : buff;
         }
     }
 }
