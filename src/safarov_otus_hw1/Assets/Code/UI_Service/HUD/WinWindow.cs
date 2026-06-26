@@ -9,8 +9,9 @@ namespace Code
     public class WinWindow : MonoBehaviour
     {
         [SerializeField] private PlayerInput _playerInput;
-        [SerializeField] private Button _collect_Btn;
-        [SerializeField] private Button _advertisement_Btn;
+        [SerializeField] private Button _exitMainMenu_Btn;
+        [SerializeField] private Button _nextLevel_Btn;
+        [SerializeField] private Button _restartLevel_Btn;
         [SerializeField] private CanvasGroup _background;
         [SerializeField] private CanvasGroup _buttonGroup;
         [SerializeField] private CanvasGroup _textWin;
@@ -18,6 +19,9 @@ namespace Code
         [SerializeField] private CoinsWinWindow _enemies;
         [SerializeField] private Conditions _conditions;
 
+        private string _mainMenu = "MainMenu";
+        private string _level1 = "Level1";
+        private string _tower = "Tower";
         private Sequence _sequence;
 
         private void Awake()
@@ -55,22 +59,50 @@ namespace Code
 
         private void OnEnable()
         {
-            _collect_Btn.onClick.AddListener(Collect);
-            _advertisement_Btn.onClick.AddListener(Advertising);
+            _exitMainMenu_Btn.onClick.AddListener(ExitMainMenu);
+            _nextLevel_Btn.onClick.AddListener(NextLevel);
+            _restartLevel_Btn.onClick.AddListener(Restart);
+        }
+
+        private void Restart()
+        {
+            gameObject.SetActive(false);
+            AudioListener.pause = false;
+            string currentScene = SceneManager.GetActiveScene().name;
+            Time.timeScale = 1;
+            SceneManager.LoadScene(currentScene);
         }
 
         private void OnDisable()
         {
-            _collect_Btn.onClick.RemoveListener(Collect);
-            _advertisement_Btn.onClick.RemoveListener(Advertising);
+            _exitMainMenu_Btn.onClick.RemoveListener(ExitMainMenu);
+            _nextLevel_Btn.onClick.RemoveListener(NextLevel);
+            _restartLevel_Btn.onClick.AddListener(Restart);
         }
 
-        private void Advertising()
+        private void NextLevel()
         {
-            Debug.Log("Реклама");
+            if (SceneManager.GetActiveScene().name != _level1)
+            {
+                ExitMainMenu();
+            }
+            else
+            {
+                _sequence?.Kill();
+                _sequence = null;
+                _sequence = DOTween.Sequence().SetUpdate(UpdateType.Normal, true);
+                _sequence.SetLink(gameObject)
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                    AudioListener.pause = false;
+                    SceneManager.LoadScene(_tower);
+                });
+            }
+
         }
 
-        private void Collect()
+        private void ExitMainMenu()
         {
             _sequence?.Kill();
             _sequence = null;
@@ -83,7 +115,7 @@ namespace Code
         {
             gameObject.SetActive(false);
             AudioListener.pause = false;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(_mainMenu);
         }
     }
 }

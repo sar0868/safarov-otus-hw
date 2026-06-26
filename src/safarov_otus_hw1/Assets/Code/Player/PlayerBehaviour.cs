@@ -43,7 +43,6 @@ namespace Code
 
         private void PlayerDeath()
         {
-            Debug.LogError($"Player death");
             OnDeath?.Invoke();
         }
 

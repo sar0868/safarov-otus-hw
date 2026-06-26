@@ -4,11 +4,10 @@ namespace Code
 {
     public class Conditions : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement _playerMovement;
+        [SerializeField] private Player _player;
         [SerializeField] private WinLoseService _winLoseService;
 
         private int _killedEnemies = 0;
-        // private int _winCondition = 2;
         private static int _countCoins = 0;
 
 
@@ -17,13 +16,15 @@ namespace Code
 
         private void OnEnable()
         {
-            _playerMovement.FallDeath += IsLoss;
+            _player.PlayerMovement.FallDeath += IsLoss;
+            _player.PlayerBehaviour.OnDeath += IsLoss;
             EndGame.OnEnd += IsWin;
         }
 
         private void OnDisable()
         {
-            _playerMovement.FallDeath -= IsLoss;
+            _player.PlayerMovement.FallDeath -= IsLoss;
+            _player.PlayerBehaviour.OnDeath += IsLoss;
             EndGame.OnEnd -= IsWin;
         }
 

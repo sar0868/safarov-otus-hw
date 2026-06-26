@@ -13,6 +13,9 @@ namespace Code
         [SerializeField] private Button _exitBtn;
         [SerializeField] private ViewMainMenu _viewMainMenu;
 
+        private string _level1 = "Level1";
+        private string _tower = "Tower";
+
         private void OnEnable()
         {
             _startGameBtn.onClick.AddListener(StartGame);
@@ -27,7 +30,7 @@ namespace Code
 
         private void StartGame()
         {
-            SceneManager.LoadScene("Gameplay");
+            SceneManager.LoadScene(_level1);
         }
 
         private void Exit()

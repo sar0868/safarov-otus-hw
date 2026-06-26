@@ -4,10 +4,12 @@ namespace Code
 {
     public sealed class Player : MonoBehaviour
     {
-        [SerializeField] private PlayerBehaviour playerBehaviour;
-        [SerializeField] public StartSpawn startSpawn;
+        [SerializeField] private PlayerBehaviour _playerBehaviour;
+        [SerializeField] private PlayerMovement _playerMovement;
+        // [SerializeField] public StartSpawn startSpawn;
 
-        public PlayerBehaviour PlayerBehaviour { get => playerBehaviour; }
+        public PlayerBehaviour PlayerBehaviour { get => _playerBehaviour; }
+        public PlayerMovement PlayerMovement { get => _playerMovement; }
     }
 }
 
