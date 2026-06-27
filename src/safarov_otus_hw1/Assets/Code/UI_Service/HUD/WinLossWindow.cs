@@ -44,6 +44,7 @@ namespace Code
             else
             {
                 _text.text = _loss;
+                _nextLevel_Btn.gameObject.SetActive(false);
 
             }
             Time.timeScale = 0;
