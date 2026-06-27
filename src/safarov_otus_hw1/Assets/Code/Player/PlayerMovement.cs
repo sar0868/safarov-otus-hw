@@ -6,19 +6,23 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
-        public event Action FallDeath;
+        // public event Action FallDeath;
         [SerializeField] private NewInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
         [SerializeField] private Animator _animator;
+
         private CharacterController _characterController;
+        private PlayerBehaviour _playerBehaviour;
         private float _gravity = -9.81f;
         private float _rotationY = 0f;
         private float _fallDeath = -10f;
+        private bool _isDeath = false;
 
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
+            _playerBehaviour = GetComponent<PlayerBehaviour>();
             _inputService.jumpEvent.AddListener(OnJump);
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -26,16 +30,20 @@ namespace Code
 
         private void Update()
         {
-            Look();
-            Move();
-            IsFall();
+            if (_isDeath == false)
+            {
+                Look();
+                Move();
+                IsFall();
+            }
         }
 
         private void IsFall()
         {
             if (transform.position.y <= _fallDeath)
             {
-                FallDeath?.Invoke();
+                _isDeath = true;
+                _playerBehaviour.PlayerDeath();
             }
         }
 

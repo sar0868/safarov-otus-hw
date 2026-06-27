@@ -14,7 +14,6 @@ namespace Code
             {
                 Player player = other.gameObject.GetComponent<Player>();
                 player.PlayerBehaviour.AddHp(_health);
-                Conditions.AddCoun();
                 gameObject.SetActive(false);
             }
         }

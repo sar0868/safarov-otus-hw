@@ -16,10 +16,8 @@ namespace Code
         [SerializeField] private Conditions _conditions;
 
 
-        // private int _layerMask;
-        // private int _layerMaskNPC;
         private int _charges;
-        private float _slashDelay;
+        // private float _slashDelay;
         private float _chargeDistance = 5f;
         private float _slashDistance = 0.05f;
         private float _currentDistance;
@@ -39,8 +37,6 @@ namespace Code
         {
             _inputService.attackEvent.AddListener(Slash);
             _inputService.rechargeEvent.AddListener(Recharge);
-            // _layerMask = LayerMask.GetMask("Enemy");
-            // _layerMaskNPC = LayerMask.GetMask("NPC");
             _currentDistance = _slashDistance;
 
         }
@@ -75,11 +71,6 @@ namespace Code
             {
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider.CompareTag("NPC"))
-                    {
-                        _conditions.KillNPC();
-                    }
-
                     Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
                     if (enemy != null)
                     {

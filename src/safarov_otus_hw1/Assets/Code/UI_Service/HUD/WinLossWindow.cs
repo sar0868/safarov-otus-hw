@@ -3,10 +3,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace Code
 {
-    public class WinWindow : MonoBehaviour
+    public class WinLossWindow : MonoBehaviour
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private Button _exitMainMenu_Btn;
@@ -14,47 +15,52 @@ namespace Code
         [SerializeField] private Button _restartLevel_Btn;
         [SerializeField] private CanvasGroup _background;
         [SerializeField] private CanvasGroup _buttonGroup;
-        [SerializeField] private CanvasGroup _textWin;
-        [SerializeField] private CoinsWinWindow _coins;
-        [SerializeField] private CoinsWinWindow _enemies;
-        [SerializeField] private Conditions _conditions;
+        [SerializeField] private TextMeshProUGUI _text;
 
+        private string _win = "победа!!!";
+        private string _loss = "поражение";
         private string _mainMenu = "MainMenu";
         private string _level1 = "Level1";
         private string _tower = "Tower";
+        private bool _isWin;
         private Sequence _sequence;
 
-        private void Awake()
+        private void Start()
         {
             gameObject.SetActive(false);
 
             _background.alpha = 0f;
             _buttonGroup.alpha = 0f;
-            _textWin.alpha = 0f;
+            _text.alpha = 0f;
         }
 
-        public void Show()
+        public void Show(bool isWin)
         {
+            _isWin = isWin;
+            if (_isWin == true)
+            {
+                _text.text = _win;
+            }
+            else
+            {
+                _text.text = _loss;
+
+            }
             Time.timeScale = 0;
             gameObject.SetActive(true);
-
             Cursor.lockState = CursorLockMode.Confined;
             AudioListener.pause = true;
             _playerInput.SwitchCurrentActionMap("UI");
+
 
             _sequence?.Kill();
             _sequence = null;
             _sequence = DOTween.Sequence().SetUpdate(UpdateType.Normal, true);
             _sequence.Append(_background.DOFade(1f, 2f))
             .AppendInterval(1f)
-            .Join(_textWin.DOFade(1f, 0.5f))
+            .Join(_text.DOFade(1f, 0.5f))
             .AppendInterval(0.5f)
-            .Join(_buttonGroup.DOFade(1f, 0.5f))
-            .OnComplete(() =>
-            {
-                _coins.FallResult(_conditions.CountCoins);
-                _enemies.FallResult(_conditions.CountKilledEnemies);
-            });
+            .Join(_buttonGroup.DOFade(1f, 0.5f));
         }
 
         private void OnEnable()

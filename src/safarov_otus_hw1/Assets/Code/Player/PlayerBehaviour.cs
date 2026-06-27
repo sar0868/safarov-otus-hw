@@ -21,7 +21,7 @@ namespace Code
             }
         }
 
-        private void Awake()
+        private void Start()
         {
             Hp = _hp;
             _maxHP = _hp;
@@ -41,7 +41,7 @@ namespace Code
         }
 
 
-        private void PlayerDeath()
+        public void PlayerDeath()
         {
             OnDeath?.Invoke();
         }
@@ -51,5 +51,6 @@ namespace Code
             int buff = _hp + health;
             Hp = buff >= _maxHP ? _maxHP : buff;
         }
+
     }
 }

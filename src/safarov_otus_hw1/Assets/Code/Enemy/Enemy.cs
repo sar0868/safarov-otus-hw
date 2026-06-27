@@ -128,7 +128,6 @@ namespace Code
 
         private IEnumerator Die()
         {
-            _conditions.KilledEnemy();
             AgentState(true);
             _animations.AnimationDeath();
             _isDeath = true;

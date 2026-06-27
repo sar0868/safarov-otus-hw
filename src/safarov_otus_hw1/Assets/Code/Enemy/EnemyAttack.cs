@@ -45,9 +45,5 @@ namespace Code
             _player.GetDamage(_damage);
         }
 
-        // public void AddPlayerBehaviour(PlayerBehaviour playerBehaviour)
-        // {
-        //     _player = playerBehaviour;
-        // }
     }
 }
