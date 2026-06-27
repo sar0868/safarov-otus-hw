@@ -50,9 +50,9 @@ namespace Code
                 gameObject.SetActive(true);
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.Confined;
+                _playerInput.SwitchCurrentActionMap("UI");
                 _isPause = true;
                 AudioListener.pause = true;
-                _playerInput.SwitchCurrentActionMap("UI");
             }
         }
 
