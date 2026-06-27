@@ -30,6 +30,7 @@ namespace Code
 
         private void StartGame()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(_level1);
         }
 

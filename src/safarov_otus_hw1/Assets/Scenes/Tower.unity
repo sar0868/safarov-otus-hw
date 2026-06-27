@@ -3667,7 +3667,11 @@ PrefabInstance:
     - target: {fileID: 7210585551175496098, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
       propertyPath: _loseWindow
       value: 
-      objectReference: {fileID: 792124108}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210585551175496098, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
+      propertyPath: _winLossWindow
+      value: 
+      objectReference: {fileID: 2124665017}
     - target: {fileID: 7469886418890360731, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
       propertyPath: m_Name
       value: '[System]'
@@ -4262,17 +4266,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e730e362773695e408e48f59e6dff87a, type: 3}
---- !u!114 &792124108 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8071590674004640496, guid: ed374374e5ae54f3eadea75c188fe0ac, type: 3}
-  m_PrefabInstance: {fileID: 858082520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca59f00fceec1427f8951cae34206e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.LoseWindow
 --- !u!1001 &803940977
 PrefabInstance:
   m_ObjectHideFlags: 0

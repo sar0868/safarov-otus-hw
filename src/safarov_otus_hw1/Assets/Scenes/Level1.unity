@@ -5546,6 +5546,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3412075455964203297, guid: b32f476bded414f2f948185af3d194c4, type: 3}
+      propertyPath: m_Size.z
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4520115982891185124, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_Size.x
       value: 30
@@ -5556,7 +5560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5564,19 +5568,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.37
+      value: -3.39
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9532302
+      value: 0.9239088
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.30224535
+      value: -0.38261285
       objectReference: {fileID: 0}
     - target: {fileID: 4656033271378296476, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -35.185
+      value: -44.991
       objectReference: {fileID: 0}
     - target: {fileID: 4714925089830603538, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_Name
@@ -5624,27 +5628,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.52
+      value: 18.81
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.19
+      value: -1.87
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.558582
+      value: -16.18
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9997092
+      value: 0.95228994
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.024118014
+      value: -0.3051948
       objectReference: {fileID: 0}
     - target: {fileID: 6702612330481412873, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 2.764
+      value: -35.54
       objectReference: {fileID: 0}
     - target: {fileID: 7018461157907180680, guid: b32f476bded414f2f948185af3d194c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8830,7 +8834,11 @@ PrefabInstance:
     - target: {fileID: 7210585551175496098, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
       propertyPath: _loseWindow
       value: 
-      objectReference: {fileID: 1957559540}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210585551175496098, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
+      propertyPath: _winLossWindow
+      value: 
+      objectReference: {fileID: 902220897}
     - target: {fileID: 7469886418890360731, guid: 52ca6f824fe9b44c8b76b697601bd72c, type: 3}
       propertyPath: m_Name
       value: '[System]'
@@ -10010,17 +10018,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92065e277f6eb7139aba972aaa2525c, type: 3}
---- !u!114 &1957559540 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8071590674004640496, guid: ed374374e5ae54f3eadea75c188fe0ac, type: 3}
-  m_PrefabInstance: {fileID: 1146276749}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca59f00fceec1427f8951cae34206e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Code.LoseWindow
 --- !u!1001 &1962931398
 PrefabInstance:
   m_ObjectHideFlags: 0

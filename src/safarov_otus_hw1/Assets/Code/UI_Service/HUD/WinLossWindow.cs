@@ -103,6 +103,7 @@ namespace Code
                 {
                     gameObject.SetActive(false);
                     AudioListener.pause = false;
+                    Time.timeScale = 1;
                     SceneManager.LoadScene(_tower);
                 });
             }
