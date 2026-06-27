@@ -9814,8 +9814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _background: {fileID: 1672218617}
   _backgroundSounds:
-  - {fileID: 8300000, guid: ede2450a1d26245ab8211f73dd14c8af, type: 3}
-  - {fileID: 8300000, guid: e030fd8a40e8641f8959c197ad68936b, type: 3}
+  - {fileID: 8300000, guid: b427f848d11db4252a21e8df0725aa42, type: 3}
   _audioMixer: {fileID: 24100000, guid: 33ea5fa179bd647b3940102f3e63e840, type: 2}
 --- !u!82 &1672218617
 AudioSource:
