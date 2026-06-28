@@ -107,7 +107,6 @@ namespace Code
                     SceneManager.LoadScene(_tower);
                 });
             }
-
         }
 
         private void ExitMainMenu()

@@ -24,7 +24,6 @@ namespace Code
             _winLoseService.ShowWinWindow();
         }
 
-
         public void IsLoss()
         {
             _winLoseService.ShowLoseWindow();

@@ -9,6 +9,7 @@ namespace Code
         public static event Action<int> OnChangeHp;
 
         [SerializeField] private int _hp = 100;
+
         private int _maxHP;
 
         public int Hp
@@ -40,7 +41,6 @@ namespace Code
             }
         }
 
-
         public void PlayerDeath()
         {
             OnDeath?.Invoke();
@@ -51,6 +51,5 @@ namespace Code
             int buff = _hp + health;
             Hp = buff >= _maxHP ? _maxHP : buff;
         }
-
     }
 }

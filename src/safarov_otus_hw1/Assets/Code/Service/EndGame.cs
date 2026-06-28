@@ -16,7 +16,6 @@ namespace Code
             _collider = GetComponent<Collider>();
         }
 
-
         private void OnTriggerEnter(Collider other)
         {
             if (_isEnter == false && other.CompareTag(_tagPlayer))

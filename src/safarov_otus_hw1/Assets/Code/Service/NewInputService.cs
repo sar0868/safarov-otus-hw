@@ -26,6 +26,7 @@ namespace Code
         {
             attackEvent?.Invoke();
         }
+
         private void OnRecharge(InputValue value)
         {
             rechargeEvent?.Invoke();

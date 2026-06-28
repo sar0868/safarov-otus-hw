@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Code
@@ -6,7 +5,6 @@ namespace Code
     [RequireComponent(typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
-        // public event Action FallDeath;
         [SerializeField] private NewInputService _inputService;
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _sensitivityLook = 20.0f;
@@ -26,7 +24,6 @@ namespace Code
             _inputService.jumpEvent.AddListener(OnJump);
             Cursor.lockState = CursorLockMode.Locked;
         }
-
 
         private void Update()
         {
@@ -83,7 +80,6 @@ namespace Code
                 _animator.SetBool("Left", false);
                 _animator.SetBool("Right", false);
             }
-
 
             Vector3 move = new Vector3(xInput, 0, zInput);
             move = Vector3.ClampMagnitude(move, _speed);

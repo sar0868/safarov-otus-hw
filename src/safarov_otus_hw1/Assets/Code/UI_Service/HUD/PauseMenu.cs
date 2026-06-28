@@ -10,6 +10,7 @@ namespace Code
         [SerializeField] private Button _backGame;
         [SerializeField] private Button _exitManeMenu;
         [SerializeField] private PlayerInput _playerInput;
+
         private bool _isPause;
 
 

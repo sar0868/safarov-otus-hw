@@ -10,7 +10,6 @@ namespace Code
         private string _tagPlayer = "Player";
         private bool _isEnter = false;
 
-
         private void Start()
         {
             _collider = GetComponent<Collider>();

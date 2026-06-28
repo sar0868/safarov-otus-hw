@@ -8609,6 +8609,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 61292418}
     - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
+      propertyPath: _audioSystem
+      value: 
+      objectReference: {fileID: 1672218616}
+    - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
       propertyPath: _inputService
       value: 
       objectReference: {fileID: 1679360784}
