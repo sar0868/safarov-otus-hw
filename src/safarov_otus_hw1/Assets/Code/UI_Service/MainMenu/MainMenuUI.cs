@@ -13,8 +13,7 @@ namespace Code
         [SerializeField] private Button _exitBtn;
         [SerializeField] private ViewMainMenu _viewMainMenu;
 
-        private string _beginning = "Begining";
-
+        private string _beginning = "Beginning";
 
         private void OnEnable()
         {
