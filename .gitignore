@@ -103,3 +103,10 @@ src/*/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Pr
 src/*/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 src/safarov_otus_hw1/.vscode
 .vscode/settings.json
+src/safarov_otus_hw1/.idea
+
+src/safarov_otus_hw1/Assets/Code/Weapon/.idea
+src/safarov_otus_hw1/Assembly-CSharp-Editor.csproj.lscache
+src/safarov_otus_hw1/Assembly-CSharp.csproj.lscache
+src/safarov_otus_hw1/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+src/safarov_otus_hw1/.github/copilot-instructions.md
