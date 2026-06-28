@@ -16,5 +16,10 @@ namespace Code
             _audioMixer.SetFloat("volume_bg", -20f);
             _audioMixer.SetFloat("volume_step", 10f);
         }
+
+        public void PlayAudio(AudioClip audioClip)
+        {
+            _background.PlayOneShot(audioClip);
+        }
     }
 }

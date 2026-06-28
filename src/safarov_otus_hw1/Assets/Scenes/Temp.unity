@@ -706,8 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _background: {fileID: 1400589624}
   _backgroundSounds:
-  - {fileID: 8300000, guid: ede2450a1d26245ab8211f73dd14c8af, type: 3}
-  - {fileID: 8300000, guid: e030fd8a40e8641f8959c197ad68936b, type: 3}
+  - {fileID: 8300000, guid: b427f848d11db4252a21e8df0725aa42, type: 3}
   _audioMixer: {fileID: 24100000, guid: 33ea5fa179bd647b3940102f3e63e840, type: 2}
 --- !u!82 &1400589624
 AudioSource:
@@ -1291,9 +1290,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2146038662}
     - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
+      propertyPath: _audioSlash
+      value: 
+      objectReference: {fileID: 8300000, guid: d23adfdf58f9d449aa47ab2a5d369768, type: 3}
+    - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
       propertyPath: _conditions
       value: 
       objectReference: {fileID: 777439656}
+    - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
+      propertyPath: _audioSystem
+      value: 
+      objectReference: {fileID: 1400589623}
     - target: {fileID: 2264194384935557658, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
       propertyPath: _inputService
       value: 

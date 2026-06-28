@@ -276,6 +276,7 @@ MonoBehaviour:
   _damage: 1
   _detectionRadus: 10
   _animations: {fileID: 7295870644332056189}
+  _audioSpear: {fileID: 8300000, guid: d23adfdf58f9d449aa47ab2a5d369768, type: 3}
 --- !u!114 &7295870644332056189
 MonoBehaviour:
   m_ObjectHideFlags: 0

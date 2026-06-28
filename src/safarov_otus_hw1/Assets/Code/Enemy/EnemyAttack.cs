@@ -6,10 +6,9 @@ namespace Code
     {
         [SerializeField] private int _damage = 1;
         [SerializeField] private float _detectionRadus = 10.0f;
-        private PlayerBehaviour _player;
-
         [SerializeField] private EnemyAnimation _animations;
 
+        private PlayerBehaviour _player;
 
         private void Awake()
         {
@@ -44,6 +43,5 @@ namespace Code
         {
             _player.GetDamage(_damage);
         }
-
     }
 }

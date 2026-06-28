@@ -14,6 +14,8 @@ namespace Code
         [SerializeField] private int _damage = 1;
         [SerializeField] private LayerMask _targetLayers;
         [SerializeField] private Conditions _conditions;
+        [SerializeField] private AudioSystem _audioSystem;
+        [SerializeField] private AudioClip _audioSlash;
 
 
         private int _charges;
@@ -49,6 +51,7 @@ namespace Code
         public void Slash()
         {
             _animator.SetTrigger("Slash");
+            _audioSystem.PlayAudio(_audioSlash);
             StartCoroutine(HitEnemy());
 
         }

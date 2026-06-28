@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66918f772bae88886b9dc93101341368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerBehaviour: {fileID: 6598327957621147318}
-  startSpawn: {fileID: 0}
+  _playerBehaviour: {fileID: 0}
+  _playerMovement: {fileID: 0}
 --- !u!114 &1398672211208839002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 640
   _conditions: {fileID: 0}
+  _audioSystem: {fileID: 0}
+  _audioSlash: {fileID: 8300000, guid: d23adfdf58f9d449aa47ab2a5d369768, type: 3}
 --- !u!114 &6598327957621147318
 MonoBehaviour:
   m_ObjectHideFlags: 0
