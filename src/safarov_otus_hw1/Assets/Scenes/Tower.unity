@@ -372,6 +372,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276830531f12140d2ae55a0c21cf85fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Code.Conditions
+--- !u!1 &69926874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69926876}
+  - component: {fileID: 69926875}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &69926875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69926874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: dfe9356fecfecce448e54d8afe208ca7, type: 2}
+--- !u!4 &69926876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69926874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 348.0064, y: 77.58855, z: 88.24637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &76050964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3834138925405773835, guid: d92065e277f6eb7139aba972aaa2525c, type: 3}
@@ -8624,6 +8673,10 @@ PrefabInstance:
       propertyPath: _playerBehaviour
       value: 
       objectReference: {fileID: 513012949}
+    - target: {fileID: 5589428912641649726, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7808189722694317165, guid: b95522be231ea44bb833b70e1c9a2da9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.48409128
@@ -14161,3 +14214,4 @@ SceneRoots:
   - {fileID: 775611806}
   - {fileID: 274834232}
   - {fileID: 2117811325}
+  - {fileID: 69926876}
