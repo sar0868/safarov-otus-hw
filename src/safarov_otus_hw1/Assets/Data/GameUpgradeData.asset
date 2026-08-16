@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad3e2be26a51440cb62871411dff289, type: 3}
+  m_Name: GameUpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::Code.GameUpgradeData
+  _gameDataByLevels:
+  - Level: 1
+    GameData: {fileID: 11400000, guid: 3ca2aa5662f8648408f6dac5b2b8b753, type: 2}
+  - Level: 2
+    GameData: {fileID: 11400000, guid: 6b22a02acbc11413c92dbf458cd58236, type: 2}
+  _gameDataDefault: {fileID: 11400000, guid: 5e2050a6640034c5f9229e281b696c41, type: 2}
